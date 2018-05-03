@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ApplicantDialogController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" styleClass="DialogTitle" stylesheets="@../css/debrunStyle.css" text="Nevező adatlap" textAlignment="CENTER" />
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nevező azonosító" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="applicant_id" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nevező neve" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="clientName" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Belépési státusz" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="applicant_status" prefWidth="200.0" promptText="Válassz a státuszok közül" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Rajtszám" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="start_number" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Neme" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="clientGender" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Pólóméret" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="tshirtSize" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Születési év" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="clientBirthDate" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Email" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="clientEmail" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Megjegyzés" textAlignment="RIGHT">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextArea fx:id="note" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Regisztráció ideje">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="registration_date" editable="false" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="cancelDialog" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#cancelDialog" prefWidth="100.0" text="Mégsem">
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="changeStatusDialog" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#updateApplicantStatus" prefWidth="100.0" text="Módosítás" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

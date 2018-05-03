@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="230.0" prefWidth="400.0" styleClass="aboutWindow" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AboutWindowController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefWidth="400.0">
+         <children>
+            <HBox>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../images/logo_tansparent.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="TOP_CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="220.0" styleClass="DialogTitle" stylesheets="@../css/debrunStyle.css" text="WIZZAIR DEBRUN ">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label text="Beléptető Alkalmazás" />
+                        <Label text="Verzió: 1.0" />
+                        <Label text="Fejlesztő: Ilyés Imre" />
+                        <Label text="E-mail: " />
+                        <Label text="ilyes.imre@debrecenairport.com" />
+                        <Label text="Készült 2018-ban" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Button fx:id="aboutCloseBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#closeAboutLeftMouseClicked" text="OK">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

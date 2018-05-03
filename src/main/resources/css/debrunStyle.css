@@ -1,0 +1,89 @@
+
+.windowLeftPanel{
+    -fx-background-color: #e5c7d0;
+}
+
+.sidebarTitle{
+    -fx-font-family: OpenSansLight;
+    -fx-font-size: 20px;
+    -fx-text-fill: #5c0055;
+}
+
+.logoutButton{
+
+}
+
+.mainPanel{
+    -fx-background-image: url("/images/kep.jpg");
+    -fx-background-size: 100% 100%;
+}
+
+.loginPanel{
+    -fx-background-image: url("/images/loginpanel-bg.jpg");
+    -fx-background-size: 100%;
+    -fx-background-position: bottom;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #BD0F77;
+    -fx-border-width: 5px;
+}
+
+.loginPanelTitle{
+    -fx-text-fill: #BD0F77;
+    -fx-font-size: 20px;
+
+}
+
+.loginBtn{
+    -fx-background-color: #BD0F77;
+    -fx-text-fill: #FFFFFF;
+}
+
+.loginMessage{
+    -fx-text-fill: red;
+}
+
+#applicantsTable .table-column {
+    -fx-alignment: CENTER;
+}
+
+.statusbar{
+    -fx-background-color: #5c0055;
+}
+
+.StatusBarSeparator{
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #5c0055;
+}
+
+.statusbarLabels{
+    -fx-text-fill: #FFFFFF;
+}
+
+.DialogTitle{
+    fx-font-size:24px;
+    fx-margin-top:20px;
+}
+
+.aboutWindow{
+    -fx-background-image: url("/images/loginpanel-bg.jpg");
+    -fx-background-size: 100%;
+    -fx-background-position: bottom;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #BD0F77;
+    -fx-border-width: 5px;
+
+}
+
+.preferencesWindow{
+    -fx-background-size: 100%;
+    -fx-background-position: bottom;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #BD0F77;
+    -fx-border-width: 5px;
+
+}
+
+
+
+

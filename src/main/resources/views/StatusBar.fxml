@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="statusBar" alignment="CENTER_RIGHT" minHeight="25.0" minWidth="800.0" styleClass="statusbar" stylesheets="@../css/debrunStyle.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatusBarController">
+    <children>
+        <Separator orientation="VERTICAL" styleClass="StatusBarSeparator" stylesheets="@../css/debrunStyle.css" />
+        <Label fx:id="networkstatus" styleClass="statusbarLabels" stylesheets="@../css/debrunStyle.css">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding></Label>
+        <Separator orientation="VERTICAL" styleClass="StatusBarSeparator" stylesheets="@../css/debrunStyle.css" />
+        <Label fx:id="applicantCounter" styleClass="statusbarLabels" stylesheets="@../css/debrunStyle.css">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding></Label>
+        <Separator orientation="VERTICAL" styleClass="StatusBarSeparator" stylesheets="@../css/debrunStyle.css" />
+        <Label fx:id="labelRight" styleClass="statusbarLabels" stylesheets="@../css/debrunStyle.css" text="">
+         <padding>
+            <Insets left="10.0" right="20.0" />
+         </padding></Label>
+    </children>
+</HBox>

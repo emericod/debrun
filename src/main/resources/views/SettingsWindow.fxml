@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsWindowController">
+   <children>
+      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="500.0" text="Adatbázis kapcsolódási beállítások">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox>
+               <children>
+                  <Label prefHeight="25.0" prefWidth="200.0" text="Adatbázis kiszolgáló">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="host" prefWidth="230.0" promptText="http://localhost" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefHeight="25.0" prefWidth="200.0" text="Felhasználónév">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="username" prefWidth="230.0" promptText="username" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefHeight="30.0" prefWidth="200.0" text="Jelszó">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Label>
+                  <PasswordField fx:id="password" prefWidth="230.0" promptText="password" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="testConnectionBtn" mnemonicParsing="false" onAction="#testConnectionBtnLeftMouseClicked" text="Teszt kapcsolódás">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label fx:id="connectionMessage" prefHeight="25.0" prefWidth="230.0">
+                     <HBox.margin>
+                        <Insets left="90.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefHeight="30.0" prefWidth="200.0" text="Automatikus szinkronizálás (perc)" />
+                  <TextField fx:id="syncTime" prefWidth="230.0" promptText="0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button fx:id="saveSettingsBtn" mnemonicParsing="false" onAction="#SaveSettingButtonLeftMouseClicked" text="Beállítások mentése">
+                     <HBox.margin>
+                        <Insets left="230.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

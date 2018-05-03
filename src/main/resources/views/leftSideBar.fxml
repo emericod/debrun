@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxWidth="170.0" minHeight="600.0" minWidth="170.0" prefWidth="170.0" styleClass="windowLeftPanel" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LeftSideBarController">
+   <children>
+      <VBox alignment="TOP_CENTER" minWidth="170.0">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo_tansparent.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label text="Bejelentkezve:">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="activeUserLabel" alignment="TOP_CENTER" contentDisplay="CENTER" styleClass="sidebarTitle" stylesheets="@../css/debrunStyle.css" text="" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="sidebarLogoutButton" contentDisplay="CENTER" mnemonicParsing="false" onAction="#sidebarLogoutButton_LeftClicked" styleClass="logoutButton" stylesheets="@../css/debrunStyle.css" text="Kijelentkezés" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</Pane>

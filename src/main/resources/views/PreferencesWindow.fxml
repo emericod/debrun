@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="320.0" prefWidth="550.0" styleClass="preferencesWindow" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.PreferencesWindowController">
+   <children>
+      <VBox alignment="TOP_CENTER" styleClass="preferencesWindow" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <Label alignment="TOP_CENTER" text="Beállítások" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="errormessage" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="MySql kiszolgáló" />
+                  <ComboBox fx:id="connectType" prefWidth="80.0" />
+                  <TextField fx:id="host" prefWidth="180.0" promptText="http://localhost">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></TextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="Adatbázis neve" />
+                  <TextField fx:id="database" prefWidth="270.0" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="Mysql felhasználónév" />
+                  <TextField fx:id="username" prefWidth="270.0" promptText="felhasználónév" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="Mysql jelszó" />
+                  <PasswordField fx:id="password" prefWidth="270.0" promptText="jelszó" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="Kapcsolat ellenőrzés periódusidő (mp)" />
+                  <TextField fx:id="checknetworkperiod" prefWidth="270.0" promptText="másodperc" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label prefWidth="230.0" text="Szinkronizálás periódusidő (mp)" />
+                  <TextField fx:id="syncdbperiod" prefWidth="270.0" promptText="másodperc" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="cancelBtn" mnemonicParsing="false" text="Bezár">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveconnectionBtnLeftMouseClick" text="Módosítás" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

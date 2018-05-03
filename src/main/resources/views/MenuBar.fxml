@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<MenuBar maxHeight="25.0" minHeight="25.0" prefHeight="25.0" styleClass="menuBar" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuBarController">
+  <menus>
+    <Menu mnemonicParsing="false" text="Fájl">
+      <items>
+            <MenuItem fx:id="settingsMenu" mnemonicParsing="false" onAction="#openPreferencesLeftMouseClicked" text="Beállítások" />
+        <MenuItem fx:id="exitBtn" mnemonicParsing="false" onAction="#exitBtnOnLeftClick" text="Kilépés" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Adatbázis">
+         <items>
+            <MenuItem fx:id="syncButton" mnemonicParsing="false" onAction="#SyncDatabaseLeftMouseClicked" text="Adatbázis szinkronizálása" />
+            <MenuItem fx:id="sendSyncButton" mnemonicParsing="false" onAction="#SendSyncLeftMouseClicked" text="Adatok küldése a kiszolgálónak" />
+            <MenuItem fx:id="getSyncButton" mnemonicParsing="false" onAction="#GetSyncLeftMouseClicked" text="Adatok fogadása a kiszolgálótól" />
+         </items></Menu>
+    <Menu mnemonicParsing="false" text="Súgó">
+      <items>
+        <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#openAboutLeftMouseClicked" text="Névjegy" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>
