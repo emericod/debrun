@@ -12,30 +12,40 @@ import java.util.Map;
 
 
 /**
- * EntityManagerFactoryHelper is class of EntityManagerFactory, this class helps to build the connection with mysql database
+ * EntityManagerFactoryHelper is class of EntityManagerFactory, this class helps to build the connection with mysql database.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
  */
 public class EntityManagerFactoryHelper implements AutoCloseable {
 
+    /**
+     * Default EntityManagerFactoryHelper.
+     */
     private static final EntityManagerFactoryHelper ENTITY_MANAGER_FACTORY_HELPER = new EntityManagerFactoryHelper();
+
+    /**
+     * Default persistence unit name in persistence.xml.
+     */
     private static final String PERSISTENCE_UNIT_NAME = "debrununit";
 
+    /**
+     * Default EntityManagerFactory.
+     */
     private EntityManagerFactory emFactory;
 
     /**
-     * Getter of instance
-     * @return ENTITY_MANAGER_FACTORY_HELPER
+     * Getter of instance.
+     * @return ENTITY_MANAGER_FACTORY_HELPER.
      */
     public static EntityManagerFactoryHelper getInstance() {
         return ENTITY_MANAGER_FACTORY_HELPER;
     }
 
     /**
-     * This method creating EnityManagerFactory and returns for the connection
-     * @return EntityManagerFactory
-     * @throws SQLException if there is any problem with SQL database
+     * This method creating EnityManagerFactory and returns for the connection.
+     * @return EntityManagerFactory.
+     * @throws SQLException if there is any problem with SQL database.
      */
     public EntityManagerFactory getEmFactory() throws SQLException {
         OfflineDao dao = new OfflineDao();
@@ -53,8 +63,8 @@ public class EntityManagerFactoryHelper implements AutoCloseable {
     }
 
     /**
-     * EntityManagerFactory closing method
-     * @throws Exception if there is any problem with SQL database
+     * EntityManagerFactory closing method.
+     * @throws Exception if there is any problem with SQL database.
      */
     @Override
     public void close() throws Exception {

@@ -7,7 +7,7 @@ import services.OfflineService;
 
 
 /**
- * SyncDatabase is class of scheduled synchronizing database on new thread
+ * SyncDatabase is class of scheduled synchronizing database on new thread.
  * The sync period time is configurabled in preferences
  * @author Ilyés Imre
  * @version 1.0
@@ -16,9 +16,9 @@ import services.OfflineService;
 public class SyncDatabase extends Task<Integer> {
 
     /**
-     * This method implemented Task abstract method
-     * @return 0, if the thread cancelled
-     * @throws Exception if there is any problem with local SQL database
+     * This method implemented Task abstract method.
+     * @return 0, if the thread cancelled.
+     * @throws Exception if there is any problem with local SQL database.
      */
     @Override
     protected Integer call() throws Exception {

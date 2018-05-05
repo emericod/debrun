@@ -20,21 +20,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * MysqlDao is class of Mysql database's DAO
+ * MysqlDao is class of Mysql database's DAO.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
  */
 public class MysqlDao implements MysqlDaoInterface<Applicant> {
+
+    /**
+     * Default EntityManagerFactory.
+     */
     private EntityManagerFactory emfactory;
+
+    /**
+     * EntityManager.
+     */
     private EntityManager eManager;
+
+    /**
+     * Offline DAO.
+     */
     OfflineDao offlineDao;
+
+    /**
+     * Offline service of Offline DAO.
+     */
     OfflineService offlineService;
+
+    /**
+     * EntityManagerFactoryHelper for remote connection.
+     */
     private EntityManagerFactoryHelper mysqlconnection;
 
     /**
-     * Constructor of MysqlDao
-     * @throws SQLException if there is any problem with the remoted database
+     * Constructor of MysqlDao.
+     * @throws SQLException if there is any problem with the remoted database.
      */
     public MysqlDao() throws SQLException {
         if(HomeWindowController.networkStatus == null){
@@ -50,11 +70,11 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * Implemented method of MysqlDao interface
-     * This method checking the user authentication by username and password
-     * @param username is user name
-     * @param password is password of user
-     * @return boolean, when the authentication is succeed return true, else return false
+     * Implemented method of MysqlDao interface.
+     * This method checking the user authentication by username and password.
+     * @param username is user name.
+     * @param password is password of user.
+     * @return boolean, when the authentication is succeed return true, else return false.
      */
     @Override
     public boolean checkUserLogedIn(String username, String password) {
@@ -87,10 +107,10 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method is implemented method of MysqlDao interface
-     * This method search Applicant by parameter / username
-      * @param username is user name
-     * @return Client, the result what has username the parameter
+     * This method is implemented method of MysqlDao interface.
+     * This method search Applicant by parameter / username.
+      * @param username is user name.
+     * @return Client, the result what has username the parameter.
      */
     @Override
     public Client getUserByUsername(String username) {
@@ -111,9 +131,9 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method list all Applicants from the remoted database
-     * @return the list of results
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method list all Applicants from the remoted database.
+     * @return the list of results.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public List<Applicant> getAllApplicantsFromMysql() throws SQLException {
@@ -140,9 +160,9 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method counting Applicants in remoted database
-     * @return int, the number of counted applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method counting Applicants in remoted database.
+     * @return int, the number of counted applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public int countMysqlApplicants() throws SQLException {
@@ -168,9 +188,9 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method sending the modified applicants from local SqlLite database for remoted database
-     * @return boolean, true, if the transaction was succeed, else returns false
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method sending the modified applicants from local SqlLite database for remoted database.
+     * @return boolean, true, if the transaction was succeed, else returns false.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public boolean sendApplicantsToMysql() throws SQLException {
@@ -233,8 +253,8 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method calling the sendApplicantsToMysql and getAllApplicantsFromMysql methods
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method calling the sendApplicantsToMysql and getAllApplicantsFromMysql methods.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void syncDatabase() throws SQLException {
@@ -245,11 +265,11 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     }
 
     /**
-     * This method updates the Applicant in the remoted database when the network connection is available
-     * @param applicant_id is ID of applicant
-     * @param status is logged in status of applicant
-     * @param modified is modified date and time
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method updates the Applicant in the remoted database when the network connection is available.
+     * @param applicant_id is ID of applicant.
+     * @param status is logged in status of applicant.
+     * @param modified is modified date and time.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void updateApplicant(String applicant_id, int status, LocalDateTime modified) throws SQLException {

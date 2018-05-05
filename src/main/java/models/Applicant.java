@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
- * Applicant is class of applicant's the model class
+ * Applicant is class of applicant's the model class.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
@@ -16,92 +16,158 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "debrun_applicants")
 public class Applicant {
+    /**
+     * Modified DateTime of applicant.
+     */
     private LocalDateTime modified;
+    /**
+     * Applicant status text for tableview, it depends from applicant_status.
+     */
     private String applicantStatusString;
 
+    /**
+     * Applicant ID.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    /**
+     * Race number of applicant.
+     */
     @Column(name = "start_number")
     @Basic
     private int start_number;
 
+    /**
+     * ID of Applicant.
+     */
     @Column(name = "applicant_id")
     @Basic
     private String applicant_id;
 
+    /**
+     * ID of Applicant's order in webshop.
+     */
     @Column(name = "order_id")
     @Basic
     private int order_id;
 
+    /**
+     * ID of Applicant's order product in webshop.
+     */
     @Column(name = "product_id")
     @Basic
     private int product_id;
 
+    /**
+     * Applicant number in team by product/order.
+     */
     @Column(name = "applicant_number")
     @Basic
     private int applicant_number;
 
+    /**
+     * Name of Applicant.
+     */
     @Column(name = "clientName")
     @Basic
     private String clientName;
 
+    /**
+     * Gender of Applicant.
+     */
     @Column(name = "clientGender")
     @Basic
     private String clientGender;
 
+    /**
+     * Tshirt size of Applicant.
+     */
     @Column(name = "tshirtSize")
     @Basic
     private String tshirtSize;
 
+    /**
+     * Birth year of Applicant.
+     */
     @Column(name = "clientBirthDate")
     @Basic
     private int clientBirthDate;
 
+    /**
+     * Email of Applicant.
+     */
     @Column(name = "clientEmail")
     @Basic
     private String clientEmail;
 
+    /**
+     * QR code of applicant's ID.
+     */
     @Column(name = "qrcode")
     @Basic
     private String qrcode;
 
+    /**
+     * Applicant's registration date.
+     */
     @Column(name = "registration_date")
     @Basic
     private Timestamp registration_date;
 
+    /**
+     * Modify date of Applicant.
+     */
     @Column(name = "modified_date")
     @Basic
     private LocalDate modified_date;
 
+    /**
+     * Modify time of Applicant.
+     */
     @Column(name = "modified_time")
     @Basic
     private LocalTime modified_time;
 
+    /**
+     * Notes of Applicant.
+     */
     @Column(name = "notes")
     @Basic
     private String notes;
 
+    /**
+     * Applicant's order completed status, if this is true, the applicant payed the order.
+     */
     @Column(name = "completed_status")
     @Basic
     private int completed_status;
 
+    /**
+     * Applicant status, logged into the race.
+     */
     @Column(name = "applicant_status")
     @Basic
     @SQLUpdate(sql = "true")
     private int applicant_status;
 
+    /**
+     * True if applicant order has deleted or not completed the payment, so can't race.
+     */
     @Column(name = "trash_status")
     @Basic
     private int trash_status;
 
+    /**
+     * Pre login/pre check in status before the race, the applicant has got the applicants pack(tshirt, race number etc).
+     */
     @Column(name = "loggedInStatus")
     @Basic
     private int loggedInStatus;
 
     /**
-     * Constructor of Applicant
+     * Constructor of Applicant.
      * @param start_number is start number of applicant
      * @param applicant_id is applicant ID
      * @param order_id is ID of order in webshop
@@ -153,319 +219,319 @@ public class Applicant {
     }
 
     /**
-     * Getter of getModified
-     * @return modified LocalDateTime
+     * Getter of getModified.
+     * @return modified LocalDateTime.
      */
     public LocalDateTime getModified() {
         return modified;
     }
 
     /**
-     *Setter of modified
-     * @param modifyDate is modify date of applicant
-     * @param modifyTime is modify time of applicant
+     *Setter of modified.
+     * @param modifyDate is modify date of applicant.
+     * @param modifyTime is modify time of applicant.
      */
     public void setModified(LocalDate modifyDate, LocalTime modifyTime) {
         this.modified = LocalDateTime.of(modifyDate,modifyTime);
     }
 
     /**
-     * Setting modified to null
+     * Setting modified to null.
      */
     public void setModifiedToNull() {
         this.modified = null;
     }
 
     /**
-     * Constructor of Applicant
+     * Constructor of Applicant.
      */
     public Applicant() {
         super();
     }
 
     /**
-     * Getter of id
-     * @return ID
+     * Getter of id.
+     * @return ID.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Setter of id
-     * @param id is ID of applicant
+     * Setter of id.
+     * @param id is ID of applicant.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * getter of start_number
-     * @return start_number
+     * Getter of start_number.
+     * @return start_number.
      */
     public int getStart_number() {
         return start_number;
     }
 
     /**
-     * Setter of start_number
-     * @param start_number is start number of applicant
+     * Setter of start_number.
+     * @param start_number is start number of applicant.
      */
     public void setStart_number(int start_number) {
         this.start_number = start_number;
     }
 
     /**
-     * getter of applicant_id
-     * @return applicant_id
+     * Getter of applicant_id.
+     * @return applicant_id.
      */
     public String getApplicant_id() {
         return applicant_id;
     }
 
     /**
-     * Setter of applicant_id
-     * @param applicant_id is ID of applicant
+     * Setter of applicant_id.
+     * @param applicant_id is ID of applicant.
      */
     public void setApplicant_id(String applicant_id) {
         this.applicant_id = applicant_id;
     }
 
     /**
-     * getter of order_id
-     * @return order_id
+     * Getter of order_id.
+     * @return order_id.
      */
     public int getOrder_id() {
         return order_id;
     }
 
     /**
-     * Setter of order_id
-     * @param order_id is ID of webshop order
+     * Setter of order_id.
+     * @param order_id is ID of webshop order.
      */
     public void setOrder_id(int order_id) {
         this.order_id = order_id;
     }
 
     /**
-     * Getter of product_id
-     * @return product_id
+     * Getter of product_id.
+     * @return product_id.
      */
     public int getProduct_id() {
         return product_id;
     }
 
     /**
-     * Setter of product_id
-     * @param product_id is ID of webshop product
+     * Setter of product_id.
+     * @param product_id is ID of webshop product.
      */
     public void setProduct_id(int product_id) {
         this.product_id = product_id;
     }
 
     /**
-     * Getter of applicant_number
-     * @return applicant_number
+     * Getter of applicant_number.
+     * @return applicant_number.
      */
     public int getApplicant_number() {
         return applicant_number;
     }
 
     /**
-     * Setter of applicant_number
-     * @param applicant_number is number of Applicant of team in order
+     * Setter of applicant_number.
+     * @param applicant_number is number of Applicant of team in order.
      */
     public void setApplicant_number(int applicant_number) {
         this.applicant_number = applicant_number;
     }
 
     /**
-     * Getter of client_name
-     * @return client_name
+     * Getter of client_name.
+     * @return client_name.
      */
     public String getClientName() {
         return clientName;
     }
 
     /**
-     * Setter of client_name
-     * @param clientName is name of Client
+     * Setter of client_name.
+     * @param clientName is name of Client.
      */
     public void setClientName(String clientName) {
         this.clientName = clientName;
     }
 
     /**
-     * Getter of client_gender
-     * @return client_gender
+     * Getter of client_gender.
+     * @return client_gender.
      */
     public String getClientGender() {
         return clientGender;
     }
 
     /**
-     * Setter of client_gender
-     * @param clientGender is gender of Client
+     * Setter of client_gender.
+     * @param clientGender is gender of Client.
      */
     public void setClientGender(String clientGender) {
         this.clientGender = clientGender;
     }
 
     /**
-     * Getter of tshirt_size
-     * @return tshirt_size
+     * Getter of tshirt_size.
+     * @return tshirt_size.
      */
     public String getTshirtSize() {
         return tshirtSize;
     }
 
     /**
-     * Setter of tshirt_size
-     * @param tshirtSize is Tshirt size of applicant
+     * Setter of tshirt_size.
+     * @param tshirtSize is Tshirt size of applicant.
      */
     public void setTshirtSize(String tshirtSize) {
         this.tshirtSize = tshirtSize;
     }
 
     /**
-     * Getter of client_birthdate
-     * @return client_birthdate
+     * Getter of client_birthdate.
+     * @return client_birthdate.
      */
     public int getClientBirthDate() {
         return clientBirthDate;
     }
 
     /**
-     * Setter of client_birthdate
-     * @param clientBirthDate is birth year of applicant
+     * Setter of client_birthdate.
+     * @param clientBirthDate is birth year of applicant.
      */
     public void setClientBirthDate(int clientBirthDate) {
         this.clientBirthDate = clientBirthDate;
     }
 
     /**
-     * Getter of client_email
-     * @return client_email
+     * Getter of client_email.
+     * @return client_email.
      */
     public String getClientEmail() {
         return clientEmail;
     }
 
     /**
-     * Setter of client_email
-     * @param clientEmail email of applicant
+     * Setter of client_email.
+     * @param clientEmail email of applicant.
      */
     public void setClientEmail(String clientEmail) {
         this.clientEmail = clientEmail;
     }
 
     /**
-     * Getter of qrCode
-     * @return qrCode
+     * Getter of qrCode.
+     * @return qrCode.
      */
     public String getQrcode() {
         return qrcode;
     }
 
     /**
-     * Setter of qrCode
-     * @param qrcode is QR-code of applicant ID
+     * Setter of qrCode.
+     * @param qrcode is QR-code of applicant ID.
      */
     public void setQrcode(String qrcode) {
         this.qrcode = qrcode;
     }
 
     /**
-     * Getter of registraion_date
-     * @return registraion_date
+     * Getter of registraion_date.
+     * @return registraion_date.
      */
     public Timestamp getRegistration_date() {
         return registration_date;
     }
 
     /**
-     * Setter of registraion_date
-     * @param registration_date is date of registration
+     * Setter of registraion_date.
+     * @param registration_date is date of registration.
      */
     public void setRegistration_date(Timestamp registration_date) {
         this.registration_date = registration_date;
     }
 
     /**
-     * Getter of modified_date
-     * @return modified_date
+     * Getter of modified_date.
+     * @return modified_date.
      */
     public LocalDate getModified_date() {
         return modified_date;
     }
 
     /**
-     * Setter of modified_date
-     * @param modified_date is modify date of applicant
+     * Setter of modified_date.
+     * @param modified_date is modify date of applicant.
      */
     public void setModified_date(LocalDate modified_date) {
         this.modified_date = modified_date;
     }
 
     /**
-     * Getter of modified_time
-     * @return modified_time
+     * Getter of modified_time.
+     * @return modified_time.
      */
     public LocalTime getModified_time() {
         return modified_time;
     }
 
     /**
-     * Setter of modified_time
-     * @param modified_time is modify time of applicant
+     * Setter of modified_time.
+     * @param modified_time is modify time of applicant.
      */
     public void setModified_time(LocalTime modified_time) {
         this.modified_time = modified_time;
     }
 
     /**
-     * Getter of notes
-     * @return notes
+     * Getter of notes.
+     * @return notes.
      */
     public String getNotes() {
         return notes;
     }
 
     /**
-     * Setter of notes
-     * @param notes is note of applicant
+     * Setter of notes.
+     * @param notes is note of applicant.
      */
     public void setNotes(String notes) {
         this.notes = notes;
     }
 
     /**
-     * Getter of completed_status (order payment is completed)
-     * @return completed_status
+     * Getter of completed_status (order payment is completed).
+     * @return completed_status.
      */
     public int getCompleted_status() {
         return completed_status;
     }
 
     /**
-     * Setter of completed_status
-     * @param completed_status is webshop order status when the order is completed
+     * Setter of completed_status.
+     * @param completed_status is webshop order status when the order is completed.
      */
     public void setCompleted_status(int completed_status) {
         this.completed_status = completed_status;
     }
 
     /**
-     * Getter of applicant_status (applicant already logged in to the running race)
-     * @return applicant_status
+     * Getter of applicant_status (applicant already logged in to the running race).
+     * @return applicant_status.
      */
     public int getApplicant_status() {
         return this.applicant_status;
     }
 
     /**
-     * Setter of applicant_status
-     * @param applicant_status is the logged in status on the day of the race
+     * Setter of applicant_status.
+     * @param applicant_status is the logged in status on the day of the race.
      */
     public void setApplicant_status(int applicant_status) {
         this.applicant_status = applicant_status;
@@ -473,40 +539,40 @@ public class Applicant {
     }
 
     /**
-     * Getter of trash_status (Applicants of deleted orders)
-     * @return trash_status
+     * Getter of trash_status (Applicants of deleted orders).
+     * @return trash_status.
      */
     public int getTrash_status() {
         return trash_status;
     }
 
     /**
-     * Setter of trash_status
-     * @param trash_status is status when the order has deleted or failed
+     * Setter of trash_status.
+     * @param trash_status is status when the order has deleted or failed.
      */
     public void setTrash_status(int trash_status) {
         this.trash_status = trash_status;
     }
 
     /**
-     * Getter of loggedInStatus
-     * @return loggedInStatus
+     * Getter of loggedInStatus.
+     * @return loggedInStatus.
      */
     public int getLoggedInStatus() {
         return loggedInStatus;
     }
 
     /**
-     * Setter of loggedInStatus
-     * @param loggedInStatus is pre logged in status when the applicant checked in before the race
+     * Setter of loggedInStatus.
+     * @param loggedInStatus is pre logged in status when the applicant checked in before the race.
      */
     public void setLoggedInStatus(int loggedInStatus) {
         this.loggedInStatus = loggedInStatus;
     }
 
     /**
-     * Getter of applicantStatusString
-     * @return applicantStatusString
+     * Getter of applicantStatusString.
+     * @return applicantStatusString.
      */
     public String getApplicantStatusString() {
         return applicantStatusString;

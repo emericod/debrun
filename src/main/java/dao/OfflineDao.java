@@ -17,20 +17,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * OfflineDao is class of SqlLite database's DAO
+ * OfflineDao is class of SqlLite database's DAO.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
  */
 public class OfflineDao implements OfflineDaoInterface<Applicant> {
+
+    /**
+     * Connection.
+     */
     private Connection connection = null;
+
+    /**
+     * Statement.
+     */
     private Statement statement;
+
+    /**
+     * Mysql DAO.
+     */
     private MysqlDao mysqldao;
+
+    /**
+     * Service of Mysql Dao.
+     */
     private MysqlService mysqlservice;
 
     /**
-     * Constructor of OfflineDao class
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Constructor of OfflineDao class.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     public OfflineDao() throws SQLException {
         MainApp.logger.info("Connecting in processing...");
@@ -40,11 +56,11 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method is dooing the user authentication by usernam and password in the local SqlLite database
-     * @param username is user name
-     * @param password is password of user
-     * @return true, if the authenticaion is succeed, else returns false
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method is dooing the user authentication by usernam and password in the local SqlLite database.
+     * @param username is user name.
+     * @param password is password of user.
+     * @return true, if the authenticaion is succeed, else returns false.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public boolean userLoggedIn(String username, String password) throws SQLException {
@@ -77,9 +93,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
 
     /**
-     * This method adds the logged in user to the local SqlLite database
-     * @param user is object of user
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method adds the logged in user to the local SqlLite database.
+     * @param user is object of user.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void addUserToSqlLite(Client user) throws SQLException {
@@ -113,10 +129,10 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method search user by username in the local SqlLite database
-     * @param username is user name
-     * @return Client, result of Applicant what has username the parameter
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method search user by username in the local SqlLite database.
+     * @param username is user name.
+     * @return Client, result of Applicant what has username the parameter.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public Client getUserByUsername(String username) throws SQLException {
@@ -139,8 +155,8 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Create SqlLite database file, if the database not exists
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Create SqlLite database file, if the database not exists.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void sqlLiteConnection() throws SQLException {
@@ -158,9 +174,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Getting all applicants from the local SqlLite database
-     * @return Results of applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Getting all applicants from the local SqlLite database.
+     * @return Results of applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public List<Applicant> getAllApplicantFromSqlLite() throws SQLException {
@@ -241,9 +257,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Searching newer modified applicants from local SqlLite database
-     * @return Results of applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Searching newer modified applicants from local SqlLite database.
+     * @return Results of applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public List<Applicant> getModifiedApplicantsFromSqlLite() throws SQLException {
@@ -324,10 +340,10 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Finding applicants by parameter / keyword in local SqlLite database
-     * @param keyword is keyword what is included in ID,, applicant_id, client name, client gender or trash status
-     * @return Results of applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Finding applicants by parameter / keyword in local SqlLite database.
+     * @param keyword is keyword what is included in ID,, applicant_id, client name, client gender or trash status.
+     * @return Results of applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public List<Applicant> findApplicantsByKeyword(String keyword) throws SQLException {
@@ -408,11 +424,11 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Updating applicant status by parameter
-     * This method updating applicant status what applicant_id is the parameter
-     * @param applicant_id is ID of applicant
-     * @param status is status of applicant (0, if false or 1, if true)
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Updating applicant status by parameter.
+     * This method updating applicant status what applicant_id is the parameter.
+     * @param applicant_id is ID of applicant.
+     * @param status is status of applicant (0, if false or 1, if true).
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     public void updateApplicant(String applicant_id, int status) throws SQLException {
         LocalDate modified_date = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonth(), LocalDate.now().getDayOfMonth());
@@ -432,9 +448,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Getting all applicants from the remoted database if the network connection is available
-     * @return results of applicant list
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Getting all applicants from the remoted database if the network connection is available.
+     * @return results of applicant list.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public List<Applicant> getAllApplicantsFromMysql() throws SQLException {
@@ -569,9 +585,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
 
     /**
-     * Counting applicants in local SqlLite database
-     * @return number of applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Counting applicants in local SqlLite database.
+     * @return number of applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public int countSqlLiteApplicants() throws SQLException {
@@ -583,9 +599,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * Counting applicants in remoted database
-     * @return number of applicants
-     * @throws SQLException if there is any problem with remoted SQL database
+     * Counting applicants in remoted database.
+     * @return number of applicants.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public int countMysqlApplicants() throws SQLException {
@@ -604,9 +620,9 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method sending applicants to remoted database
-     * @return true, if the operation has succeed, else return false
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method sending applicants to remoted database.
+     * @return true, if the operation has succeed, else return false.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public boolean sendApplicantsToMysql() throws SQLException {
@@ -627,8 +643,8 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method calls mysqlDao syncDatabase method
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method calls mysqlDao syncDatabase method.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void syncDatabase() throws SQLException {
@@ -641,10 +657,10 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method storing preferences in the local SqlLite database
-     * if the setting key is not available in the database, the method create or if it exists, the method update this
-     * @param settings is a list of settings
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method storing preferences in the local SqlLite database.
+     * if the setting key is not available in the database, the method create or if it exists, the method update this.
+     * @param settings is a list of settings.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public void savePreferences(List<Setting> settings) throws SQLException {
@@ -675,10 +691,10 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     }
 
     /**
-     * This method getting the setting record by configKey parameter from the local SqlLite database
-     * @param configKey is the key of config
-     * @return config value
-     * @throws SQLException if there is any problem with remoted SQL database
+     * This method getting the setting record by configKey parameter from the local SqlLite database.
+     * @param configKey is the key of config.
+     * @return config value.
+     * @throws SQLException if there is any problem with remoted SQL database.
      */
     @Override
     public Setting getPreference_by_key(String configKey) throws SQLException {

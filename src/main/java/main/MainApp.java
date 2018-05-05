@@ -48,26 +48,91 @@ import java.sql.SQLException;
  */
 
 public class MainApp extends Application {
+
+    /**
+     * Main stage of application.
+     */
     public static Stage primaryStage;
+
+    /**
+     * Root panel of application.
+     */
     public static BorderPane rootPanel;
+
+    /**
+     * Views of main windows.
+     */
     public static AnchorPane loginWindow, homeWindow, dialogPanel;
+
+    /**
+     * FXML loader of about dialog.
+     */
     public static FXMLLoader aboutWindow;
+    /**
+     * FXML loader of preferences dialog.
+     */
     public static FXMLLoader preferencesWindow;
+    /**
+     * FXML loader of home window.
+     */
     public static FXMLLoader homeWindowLoader;
+    /**
+     * Controller of loaded home window.
+     */
     public static HomeWindowController actualHomeWindowcontroller;
+
+    /**
+     * Controller of loaded menubar.
+     */
     public static MenuBarController actualMenuBarController;
+
+    /**
+     * Menubar.
+     */
     public static MenuBar menuBar;
+
+    /**
+     * Main scene of application.
+     */
     private static Scene scene;
+
+    /**
+     * Logger of application.
+     */
     public static Logger logger = LoggerFactory.getLogger(MainApp.class);
+
+    /**
+     * Logged in actual user.
+     */
     public static Client actualUser;
+
+    /**
+     * Dialog panel.
+     */
     public static Stage dialogStage;
+
+    /**
+     * Controller of loaded statusBar.
+     */
     public static StatusBarController actualStatusbarController;
+
+    /**
+     * Offline DAO.
+     */
     public OfflineDao dao;
+
+    /**
+     * Offline service of Offline DAO.
+     */
     public OfflineService service;
+
+    /**
+     * FXML loader of status bar.
+     */
     public static FXMLLoader StatusBarloader;
 
     /**
-     * Constructor of MainApp
+     * Constructor of MainApp.
      */
     public MainApp() {
         try {
@@ -79,9 +144,9 @@ public class MainApp extends Application {
     }
 
     /**
-     * Start implemented javaFx method
-     * @param primaryStage is the main panel / window
-     * @throws Exception if there is any problem with SQL database
+     * Start implemented javaFx method.
+     * @param primaryStage is the main panel / window.
+     * @throws Exception if there is any problem with SQL database.
      */
     public void start(Stage primaryStage) throws Exception {
         logger.info("Creating and setting up the main window");
@@ -175,9 +240,9 @@ public class MainApp extends Application {
     }
 
     /**
-     * Main method
-     * @param args are arguments of main method
-     * @throws ClassNotFoundException if there is any class not found exception
+     * Main method.
+     * @param args are arguments of main method.
+     * @throws ClassNotFoundException if there is any class not found exception.
      */
     public static void main(String[] args) throws ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");
@@ -186,8 +251,8 @@ public class MainApp extends Application {
 
 
     /**
-     * Setting and loading active window by parameter
-     * @param pane is a panel of views
+     * Setting and loading active window by parameter.
+     * @param pane is a panel of views.
      */
     public static void SetActiveWindow(AnchorPane pane){
         if(pane != null) {
@@ -232,7 +297,7 @@ public class MainApp extends Application {
 
 
     /**
-     * Setting and loading sidebar
+     * Setting and loading sidebar.
      */
     public static void SetSidebar(){
         Pane sideBarPanel = null;
@@ -250,7 +315,7 @@ public class MainApp extends Application {
 
 
     /**
-     * Setting and loading statusbar
+     * Setting and loading statusbar.
       */
     public static void SetStatusBar(){
         HBox statusbar = null;
@@ -273,8 +338,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Checking network connection
-     * @return true, if the network is available, else return false
+     * Checking network connection.
+     * @return true, if the network is available, else return false.
      */
     public static boolean hasNetConnection(){
         boolean status = false;
@@ -309,8 +374,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Load applicant dialog and giving by parameter the selected applicant from honewindow of tableview
-     * @param applicant is object of selected applicant to load into the applicant details dialog
+     * Load applicant dialog and giving by parameter the selected applicant from honewindow of tableview.
+     * @param applicant is object of selected applicant to load into the applicant details dialog.
      */
     public static void showApplicantEditDialog(Applicant applicant) {
         try {
@@ -335,7 +400,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Loading and showing about dialog
+     * Loading and showing about dialog.
      */
     public static void showAboutDialog(){
 
@@ -370,7 +435,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Loading and showing preferences dialog
+     * Loading and showing preferences dialog.
      */
     public static void showPreferencesDialog(){
 

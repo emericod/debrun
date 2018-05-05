@@ -13,43 +13,101 @@ import services.OfflineService;
 import java.sql.SQLException;
 
 /**
- * ApplicantDialogController is controller class of applicants's dialog panel
+ * ApplicantDialogController is controller class of applicants's dialog panel.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
  */
 public class ApplicantDialogController {
 
+    /**
+     * Textfield of applicant's ID.
+     */
     @FXML
     private TextField applicant_id;
+
+    /**
+     * TextField of applicant's name.
+     */
     @FXML
     private TextField clientName;
+
+    /**
+     * TextField of applicant's status.
+     */
     @FXML
     private ComboBox applicant_status;
+
+    /**
+     * TextField of applicant's start number.
+     */
     @FXML
     private TextField start_number;
+
+    /**
+     * TextField of applicant's gender.
+     */
     @FXML
     private TextField clientGender;
+
+    /**
+     * TextField of applicant's Tshirt size.
+     */
     @FXML
     private TextField tshirtSize;
+
+    /**
+     * TextField of applicant's birth year.
+     */
     @FXML
     private TextField clientBirthDate;
+
+    /**
+     * TextField of applicant's email address.
+     */
     @FXML
     private TextField clientEmail;
+
+    /**
+     * TextField of applicants's registration number.
+     */
     @FXML
     private TextField registration_date;
+
+    /**
+     * Button of modify applicant's details.
+     */
     @FXML
     private Button changeStatusDialog;
+
+    /**
+     * Button of close dialog without any changes.
+     */
     @FXML
     private Button cancelDialog;
 
+    /**
+     * Stage of applicant's modify dialog.
+     */
     private Stage dialogStage;
+
+    /**
+     * Selected applicant in the tableview.
+     */
     private Applicant selectedApplicant;
+
+    /**
+     * Offline dao.
+     */
     private OfflineDao dao;
+
+    /**
+     * Offline service of offline dao.
+     */
     private OfflineService service;
 
     /**
-     * Constructor of ApplicantDialogController
+     * Constructor of ApplicantDialogController.
      */
 
     public ApplicantDialogController(){
@@ -62,7 +120,7 @@ public class ApplicantDialogController {
     }
 
     /**
-     * Initialize is first method what runs automatically when the gui components is loaded
+     * Initialize is first method what runs automatically when the gui components is loaded.
      */
 
     @FXML
@@ -73,16 +131,16 @@ public class ApplicantDialogController {
     }
 
     /**
-     * Setter of dialogStage
-     * @param dialogStage is applicant details panel
+     * Setter of dialogStage.
+     * @param dialogStage is applicant details panel.
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
     /**
-     * Setter of SelectedApplicant
-     * @param selectedApplicant is selected applicant on tableview of home window
+     * Setter of SelectedApplicant.
+     * @param selectedApplicant is selected applicant on tableview of home window.
      */
     public void setSelectedApplicant(Applicant selectedApplicant) {
         this.selectedApplicant = selectedApplicant;
@@ -90,8 +148,8 @@ public class ApplicantDialogController {
 
 
     /**
-     * Setter of Applicant
-     * @param applicant is selected applicant
+     * Setter of Applicant.
+     * @param applicant is selected applicant.
      */
     public void setApplicant(Applicant applicant) {
         this.selectedApplicant = applicant;
@@ -161,8 +219,8 @@ public class ApplicantDialogController {
     }
 
     /**
-     * This method update applicant if any property field has changed
-     * @param event is mouse left click on modify button of applicant dialog box
+     * This method update applicant if any property field has changed.
+     * @param event is mouse left click on modify button of applicant dialog box.
      */
     public void updateApplicantStatus(ActionEvent event){
         int status;
@@ -179,8 +237,8 @@ public class ApplicantDialogController {
     }
 
     /**
-     * Close dialog without saving
-     * @param event is mouse left button click on button
+     * Close dialog without saving.
+     * @param event is mouse left button click on button.
      */
     public void cancelDialog(ActionEvent event){
         this.dialogStage.close();

@@ -24,8 +24,8 @@ import static main.MainApp.*;
 
 
 /**
- * LoginViewController is controller class of Login window
- * In this method the login service can communicate with the login view
+ * LoginViewController is controller class of Login window.
+ * In this method the login service can communicate with the login view.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
@@ -33,36 +33,54 @@ import static main.MainApp.*;
 
 public class LoginWindowController {
 
+    /**
+     * Counted number of applicants in remoted database.
+     */
     public static int countedMysqlApplicants;
 
+    /**
+     * TextField of username of user.
+     */
     @FXML
     private TextField userName;
 
+    /**
+     * TextField of password of user.
+     */
     @FXML
     private PasswordField password;
 
+    /**
+     * Login button on login panel.
+     */
     @FXML
     private Button loginBtn;
 
+    /**
+     * Label of login message.
+     */
     @FXML
     private Label loginMessage;
 
+    /**
+     * This method first running automatic, when loading the form.
+     */
     @FXML
     protected void initialize(){
 
     }
 
     /**
-     * Constructor of LoginWindowController
+     * Constructor of LoginWindowController.
      */
     public LoginWindowController() {
         countedMysqlApplicants = 0;
     }
 
     /**
-     * This method runs when the user has clicked the login button by mouse's left button
-     * checkUser method calls the checkLogin method to authenticate user
-     * @param event is mouse left click on login button
+     * This method runs when the user has clicked the login button by mouse's left button.
+     * checkUser method calls the checkLogin method to authenticate user.
+     * @param event is mouse left click on login button.
      */
     public void checkUser(ActionEvent event) {
         MainApp.logger.info("Authenticating user...");
@@ -76,9 +94,9 @@ public class LoginWindowController {
 
 
     /**
-     * encryptPassword is encoding method from string to SHA-256
-     * @param password is password of user
-     * @return SHA-256 encoded string
+     * encryptPassword is encoding method from string to SHA-256.
+     * @param password is password of user.
+     * @return SHA-256 encoded string.
      */
     static public String encryptPassword(String password){
         MessageDigest digest = null;
@@ -95,9 +113,9 @@ public class LoginWindowController {
     }
 
     /**
-     * Basically same method as checkUser, this method runs when the user pressing enter key on login form
-     * This method call checkLogin method to authenticate user
-     * @param keyevent is user press ENTER on keyboard on login panel
+     * Basically same method as checkUser, this method runs when the user pressing enter key on login form.
+     * This method call checkLogin method to authenticate user.
+     * @param keyevent is user press ENTER on keyboard on login panel.
      */
     public void enterKeyPressed(KeyEvent keyevent){
         MainApp.logger.info("Checking user name...");
@@ -111,10 +129,10 @@ public class LoginWindowController {
     }
 
     /**
-     * Checklogin method autheticate the user by username and password
-     * If the authentication is succeed, calling the home window and set the actual user
-     * else the user getting an error message with "Authentication error" message
-     * @throws SQLException if it has any SQL problem in database
+     * Checklogin method autheticate the user by username and password.
+     * If the authentication is succeed, calling the home window and set the actual user.
+     * else the user getting an error message with "Authentication error" message.
+     * @throws SQLException if it has any SQL problem in database.
      */
      private void checkLogin() throws SQLException {
         OfflineDao sqlLiteDao = null;

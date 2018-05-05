@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CheckNetwork is class of check network connection on new thread
+ * CheckNetwork is class of check network connection on new thread.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
@@ -26,9 +26,9 @@ import java.util.List;
 class checkNetwork extends Task<Integer>{
 
     /**
-     * Call method is implemented method of Task<Integer>
-     * @return 1, if the task is active, else 0 if the task cancelled
-     * @throws Exception when is there any problem at the thread running
+     * Call method is implemented method of Task<Integer>.
+     * @return 1, if the task is active, else 0 if the task cancelled.
+     * @throws Exception when is there any problem at the thread running.
      */
     @Override
     protected Integer call() throws Exception {
@@ -49,28 +49,57 @@ class checkNetwork extends Task<Integer>{
 
 
 /**
- * HoneWindowController is controller class of Home window
- * In this class can communicate the DAO service with the homeWindow view
+ * HoneWindowController is controller class of Home window.
+ * In this class can communicate the DAO service with the homeWindow view.
  * @author Ilyés Imre
  * @version 1.0
  * @since 2018-04-08
  */
 public class HomeWindowController{
+    /**
+     * Offline DAO.
+     */
     private OfflineDao dao;
+
+    /**
+     * Offline Service of Offline DAO.
+     */
     private OfflineService service;
+
+    /**
+     * Global network status, the network monitoring is modifying this.
+     */
     public static Boolean networkStatus;
+
+    /**
+     * Dialog of Applicant's details.
+     */
     public static Stage dialog;
+
+    /**
+     * Selected Applicant in TableView.
+     */
     public static Applicant selectedApplicant;
+
+    /**
+     * List of applicants from database.
+     */
     public List<Applicant> applicantCollection;
 
+    /**
+     * TextField of searchBox.
+     */
     @FXML
     private TextField searchBox;
 
+    /**
+     * Tableview of Applicant's list.
+     */
     @FXML
     public TableView<Applicant> applicantTable;
 
     /**
-     * Constructor of HomeWindowController
+     * Constructor of HomeWindowController.
      */
     public HomeWindowController() {
         try {
@@ -83,7 +112,7 @@ public class HomeWindowController{
     }
 
     /**
-     * Initialize is first method what runs when the gui components is loaded
+     * Initialize is first method what runs when the gui components is loaded.
      */
     @FXML
     protected void initialize(){
@@ -123,24 +152,24 @@ public class HomeWindowController{
     }
 
     /**
-     * Getter of SearchBox
-     * @return Textfield of searchbox
+     * Getter of SearchBox.
+     * @return Textfield of searchbox.
      */
     public TextField getSearchBox() {
         return searchBox;
     }
 
     /**
-     * Setter of SearchBox
-     * @param searchBox is Textfield of searchbox
+     * Setter of SearchBox.
+     * @param searchBox is Textfield of searchbox.
      */
     public void setSearchBox(TextField searchBox) {
         this.searchBox = searchBox;
     }
 
     /**
-     * LoadApplicants is method, what loads the applicants into the home window's tableview
-     * @param applicantList list of applicants
+     * LoadApplicants is method, what loads the applicants into the home window's tableview.
+     * @param applicantList list of applicants.
      */
     private void loadApplicants(List<Applicant> applicantList){
         MainApp.logger.info("Clearing columns of tableview...");
@@ -222,8 +251,8 @@ public class HomeWindowController{
     }
 
     /**
-     * refreshTableview is method, what reload applicants when the applicant list or applicants property has changed
-     * @param event is left mouse click on tablewiew
+     * refreshTableview is method, what reload applicants when the applicant list or applicants property has changed.
+     * @param event is left mouse click on tablewiew.
      */
     public void refreshTableView(MouseEvent event){
     List<Applicant> getApplicantsFromDb = new ArrayList<>();
@@ -312,8 +341,8 @@ public class HomeWindowController{
 }
 
     /**
-     * findApplicantsByKeyword is method, what search applicants by keyword of searchfield
-     * @param keyevent is typing keyword in the search textfield
+     * FindApplicantsByKeyword is method, what search applicants by keyword of searchfield.
+     * @param keyevent is typing keyword in the search textfield.
      */
     public void findApplicantsByKeywordsKeydown(KeyEvent keyevent){
         List<Applicant> applicantList = null;
@@ -330,14 +359,14 @@ public class HomeWindowController{
     }
 
     /**
-     * refreshTable is callable manually to refresh tableview in home window
+     * refreshTable is callable manually to refresh tableview in home window.
      */
     public void refreshTable(){
         applicantTable.refresh();
     }
 
     /**
-     * syncRefresh is method, what can load applicant's data from the remoted database
+     * syncRefresh is method, what can load applicant's data from the remoted database.
      */
     public void syncRefresh(){
         try {
