@@ -109,7 +109,6 @@ public class ApplicantDialogController {
     /**
      * Constructor of ApplicantDialogController.
      */
-
     public ApplicantDialogController(){
         try {
             dao = new OfflineDao();
@@ -122,7 +121,6 @@ public class ApplicantDialogController {
     /**
      * Initialize is first method what runs automatically when the gui components is loaded.
      */
-
     @FXML
     private void initialize() {
         applicant_status.getItems().add("Beléptetve");
@@ -145,7 +143,6 @@ public class ApplicantDialogController {
     public void setSelectedApplicant(Applicant selectedApplicant) {
         this.selectedApplicant = selectedApplicant;
     }
-
 
     /**
      * Setter of Applicant.
@@ -243,5 +240,4 @@ public class ApplicantDialogController {
     public void cancelDialog(ActionEvent event){
         this.dialogStage.close();
     }
-
 }

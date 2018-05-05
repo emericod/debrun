@@ -57,7 +57,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Button fx:id="testConnectionBtn" mnemonicParsing="false" onAction="#testConnectionBtnLeftMouseClicked" text="Teszt kapcsolódás">
+                  <Button fx:id="testConnectionBtn" mnemonicParsing="false" text="Teszt kapcsolódás">
                      <HBox.margin>
                         <Insets left="30.0" />
                      </HBox.margin>

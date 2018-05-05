@@ -110,7 +110,6 @@ public class MenuBarController {
                 controller.syncRefresh();
             }
         }
-
     }
 
     /**
@@ -124,10 +123,7 @@ public class MenuBarController {
             } catch (SQLException e) {
                 MainApp.logger.error("Source of error: " + e.getMessage());
             }
-
-
         }
-
     }
 
     /**
@@ -145,7 +141,6 @@ public class MenuBarController {
             MainApp.logger.info("Refreshing tableview...");
             controller.syncRefresh();
         }
-
     }
 
     /**
@@ -170,6 +165,7 @@ public class MenuBarController {
      */
     public void checkEnabledMenuItems(boolean status){
         Platform.runLater(new Runnable() {
+
             @Override
             public void run() {
                 if(status){
@@ -183,8 +179,7 @@ public class MenuBarController {
                     sendSyncButton.setDisable(true);
                 }
             }
+
         });
-
     }
-
 }

@@ -107,19 +107,21 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>com.atlassian.maven.plugins</groupId>
-        <artifactId>maven-clover2-plugin</artifactId>
-        <version>4.0.4</version>
-        <executions>
-          <execution>
-            <phase>verify</phase>
-            <goals>
-              <goal>instrument</goal>
-            </goals>
-          </execution>
-        </executions>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.7</version>
+      </plugin>
+      <plugin>
+        <groupId>org.openclover</groupId>
+        <artifactId>clover-maven-plugin</artifactId>
+        <version>4.2.1</version>
         <configuration>
-          <targetPercentage>70%</targetPercentage>
+          <excludes>
+            <exclude>**/view/**</exclude>
+          </excludes>
+          <generateHistorical>true</generateHistorical>
+          <includesTestSourceRoots>true</includesTestSourceRoots>
+          <generateHtml>true</generateHtml>
+          <jdk>1.6</jdk>
         </configuration>
       </plugin>
     </plugins>
@@ -153,11 +155,11 @@
         <version>2.5</version>
       </plugin>
       <plugin>
-        <groupId>com.atlassian.maven.plugins</groupId>
-        <artifactId>maven-clover2-plugin</artifactId>
+        <groupId>org.openclover</groupId>
+        <artifactId>clover-maven-plugin</artifactId>
         <configuration>
           <generateHistorical>true</generateHistorical>
-          <historyDir>target/clover</historyDir>
+          <historyDir>target/clover/</historyDir>
         </configuration>
       </plugin>
       <plugin>

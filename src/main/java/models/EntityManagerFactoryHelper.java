@@ -2,8 +2,6 @@ package models;
 
 import dao.OfflineDao;
 import services.OfflineService;
-
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.sql.SQLException;

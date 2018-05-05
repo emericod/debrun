@@ -24,7 +24,6 @@ public class MysqlServiceTest {
     @Test
     public void getAllApplicantsFromMysqlTest() throws SQLException {
         List<Applicant> applicantsResult = mysqlservice.getAllApplicantsFromMysql();
-
         Assert.assertTrue(applicantsResult != null);
     }
 
@@ -38,9 +37,4 @@ public class MysqlServiceTest {
         Boolean successSend = mysqlservice.sendApplicantsToMysql();
         Assert.assertTrue(HomeWindowController.networkStatus && successSend || !HomeWindowController.networkStatus && !successSend);
     }
-
-
-
-
-
 }

@@ -42,6 +42,4 @@ public class LeftSideBarController {
         MainApp.rootPanel.setBottom(null);
         main.MainApp.SetActiveWindow(MainApp.loginWindow);
     }
-
-
 }

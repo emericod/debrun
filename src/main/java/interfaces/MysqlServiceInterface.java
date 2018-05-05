@@ -2,7 +2,6 @@ package interfaces;
 
 import models.Applicant;
 import models.Client;
-
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;

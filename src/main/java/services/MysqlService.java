@@ -4,7 +4,6 @@ import dao.MysqlDao;
 import interfaces.MysqlServiceInterface;
 import models.Applicant;
 import models.Client;
-
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -108,6 +107,4 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
     public void updateApplicant(String applicant_id, int status, LocalDateTime modified) throws SQLException {
         dao.updateApplicant(applicant_id, status, modified);
     }
-
-
 }

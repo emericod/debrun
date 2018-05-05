@@ -3,16 +3,11 @@ package controllers;
 import dao.OfflineDao;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import services.OfflineService;
-
 import java.sql.SQLException;
 import java.time.LocalDate;
-
 
 /**
  * StatusBarController is controller class of Statusbar on Home window.
@@ -59,7 +54,6 @@ public class StatusBarController{
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     /**
@@ -83,9 +77,7 @@ public class StatusBarController{
     public void setStatusBarNetworkStatus(String statusBarNetworkStatus) {
         if(netw == null){
             this.netw = new SimpleStringProperty("");
-
         }
         netw.set(statusBarNetworkStatus);
     }
-
 }

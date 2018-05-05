@@ -168,25 +168,25 @@ public class Applicant {
 
     /**
      * Constructor of Applicant.
-     * @param start_number is start number of applicant
-     * @param applicant_id is applicant ID
-     * @param order_id is ID of order in webshop
-     * @param product_id is ID of webshop product ID
-     * @param applicant_number is applicant number in team
-     * @param clientName is name of client
-     * @param clientGender is gender of client
-     * @param tshirtSize is Tshirt size
-     * @param clientBirthDate is birthdate of client
-     * @param clientEmail email of client
-     * @param qrcode is qrcode of applicant, this qrcode is contained applicant ID
-     * @param registration_date is date of registration
-     * @param modified_date is modify date
-     * @param modified_time is modify time
-     * @param notes is note of applicant
-     * @param completed_status is order completed status in webshop
-     * @param applicant_status is race log in status of applicant
-     * @param trash_status is webshop order status if order is deleted
-     * @param loggedInStatus pre-logged applicant status if applicant log in before the race
+     * @param start_number is start number of applicant.
+     * @param applicant_id is applicant ID.
+     * @param order_id is ID of order in webshop.
+     * @param product_id is ID of webshop product ID.
+     * @param applicant_number is applicant number in team.
+     * @param clientName is name of client.
+     * @param clientGender is gender of client.
+     * @param tshirtSize is Tshirt size.
+     * @param clientBirthDate is birthdate of client.
+     * @param clientEmail email of client.
+     * @param qrcode is qrcode of applicant, this qrcode is contained applicant ID.
+     * @param registration_date is date of registration.
+     * @param modified_date is modify date.
+     * @param modified_time is modify time.
+     * @param notes is note of applicant.
+     * @param completed_status is order completed status in webshop.
+     * @param applicant_status is race log in status of applicant.
+     * @param trash_status is webshop order status if order is deleted.
+     * @param loggedInStatus pre-logged applicant status if applicant log in before the race.
      */
     public Applicant(int start_number, String applicant_id, int order_id, int product_id, int applicant_number, String clientName, String clientGender, String tshirtSize, int clientBirthDate, String clientEmail, String qrcode, Timestamp registration_date, LocalDate modified_date, LocalTime modified_time, String notes, int completed_status, int applicant_status, int trash_status, int loggedInStatus) {
         if(modified_date != null && modified_time != null){
@@ -195,7 +195,6 @@ public class Applicant {
         else{
             this.modified = null;
         }
-        this.modified = modified;
         this.start_number = start_number;
         this.applicant_id = applicant_id;
         this.order_id = order_id;
@@ -600,6 +599,4 @@ public class Applicant {
                 ", trash_status=" + trash_status +
                 '}';
     }
-
-
 }

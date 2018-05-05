@@ -192,6 +192,9 @@
                 <artifactId>clover-maven-plugin</artifactId>
                 <version>4.2.1</version>
                 <configuration>
+                    <excludes>
+                        <exclude>**/view/**</exclude>
+                    </excludes>
                     <generateHistorical>true</generateHistorical>
                     <includesTestSourceRoots>true</includesTestSourceRoots>
                     <generateHtml>true</generateHtml>
@@ -200,7 +203,6 @@
             </plugin>
         </plugins>
     </build>
-
     <reporting>
         <plugins>
             <plugin>

@@ -40,7 +40,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="aboutCloseBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#closeAboutLeftMouseClicked" text="OK">
+            <Button fx:id="aboutCloseBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="OK">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

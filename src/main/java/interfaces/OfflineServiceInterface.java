@@ -3,7 +3,6 @@ package interfaces;
 import models.Applicant;
 import models.Client;
 import models.Setting;
-
 import java.sql.SQLException;
 import java.util.List;
 

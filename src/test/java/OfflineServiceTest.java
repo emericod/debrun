@@ -23,16 +23,16 @@ public class OfflineServiceTest {
 
     @Before
     /*
-     * Beállitjuk az alapértékeket
+     * Setting the default values
      */
     public void setUp() throws SQLException {
         offlinedao = new OfflineDao();
         offlineservice = new OfflineService(offlinedao);
-        //String username, String firstName, String lastName, String password, int status, boolean enabledStatus
+        //constructor parameters - String username, String firstName, String lastName, String password, int status, boolean enabledStatus
         testActiveClient = new Client("userA", "Minta", "Péter", "1234", 1, true);
         testInactiveClient = new Client("userB", "Minta", "Márton", "1234", 1, false);
 
-        //int start_number, String applicant_id, int order_id, int product_id, int applicant_number, String clientName, String clientGender, String tshirtSize, int clientBirthDate, String clientEmail, String qrcode, Timestamp registration_date, LocalDate modified_date, LocalTime modified_time, String notes, int completed_status, int applicant_status, int trash_status, int loggedInStatus
+        //constructor parameters - int start_number, String applicant_id, int order_id, int product_id, int applicant_number, String clientName, String clientGender, String tshirtSize, int clientBirthDate, String clientEmail, String qrcode, Timestamp registration_date, LocalDate modified_date, LocalTime modified_time, String notes, int completed_status, int applicant_status, int trash_status, int loggedInStatus
         Timestamp testApplicantRegistrationDate1 = Timestamp.valueOf("2018-02-13 14:23:12");
         testApplicantOffline = new Applicant(301, "O1783P136A1", 1783, 136, 1, "Minta Nevező1", "férfi", "XL", 1986, null, null, testApplicantRegistrationDate1, null, null, null, 1, 0, 0, 0);
 
@@ -66,7 +66,6 @@ public class OfflineServiceTest {
     @Test
     public void getAllApplicantFromSqlLiteTest() throws SQLException {
         List<Applicant> applicantsResult = offlineservice.getAllApplicantFromSqlLite();
-
         Assert.assertTrue(applicantsResult != null);
     }
 
@@ -80,14 +79,12 @@ public class OfflineServiceTest {
     public void findApplicantsByKeywordTest() throws SQLException {
         String keyword = "O";
         List<Applicant> applicantsResult = offlineservice.findApplicantsByKeyword(keyword);
-
         Assert.assertTrue(applicantsResult != null);
     }
 
     @Test
     public void getAllApplicantsFromMysqlTest() throws SQLException {
         List<Applicant> applicantsResult = offlineservice.getAllApplicantsFromMysql();
-
         Assert.assertTrue(applicantsResult != null);
     }
 
@@ -114,6 +111,5 @@ public class OfflineServiceTest {
         Assert.assertTrue(PreferencesWindowController.isValidNumberField(sampleText1));
         String sampleText2 = "ssdas1234";
         Assert.assertFalse(PreferencesWindowController.isValidNumberField(sampleText2));
-
     }
 }

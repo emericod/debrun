@@ -5,7 +5,6 @@ import javafx.concurrent.Task;
 import main.MainApp;
 import services.OfflineService;
 
-
 /**
  * SyncDatabase is class of scheduled synchronizing database on new thread.
  * The sync period time is configurabled in preferences

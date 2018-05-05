@@ -11,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import main.MainApp;
-import models.EntityManagerFactoryHelper;
 import org.bouncycastle.util.encoders.Hex;
 import services.MysqlService;
 import services.OfflineService;
@@ -19,9 +18,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-
 import static main.MainApp.*;
-
 
 /**
  * LoginViewController is controller class of Login window.
@@ -67,7 +64,6 @@ public class LoginWindowController {
      */
     @FXML
     protected void initialize(){
-
     }
 
     /**
@@ -89,9 +85,7 @@ public class LoginWindowController {
         } catch (SQLException e) {
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
-
     }
-
 
     /**
      * encryptPassword is encoding method from string to SHA-256.
@@ -152,7 +146,6 @@ public class LoginWindowController {
             }
             MysqlService service = new MysqlService(dao);
 
-
             if(service.checkUserLogedIn(userName.getText(), password.getText())){
                 MainApp.logger.info("Authenticating user in remoted database...");
                 MainApp.actualUser = service.getUserByUsername(userName.getText());
@@ -161,6 +154,7 @@ public class LoginWindowController {
                 password.setText("");
                 MainApp.logger.info("User authentication is succeed, loading home window...");
                 SetActiveWindow(MainApp.homeWindow);
+
                 try {
                     sqlLiteService.addUserToSqlLite(MainApp.actualUser);
                 } catch (SQLException e) {
@@ -170,7 +164,6 @@ public class LoginWindowController {
             else{
                 loginMessage.setText("A felhasználónév vagy a jelszó hibás!");
             }
-
         }
         else{
             MainApp.logger.info("User offline authentication...");
@@ -190,7 +183,5 @@ public class LoginWindowController {
                 MainApp.logger.error("Source of error: " + e.getMessage());
             }
         }
-
     }
-
 }

@@ -4,11 +4,8 @@ import controllers.*;
 import dao.OfflineDao;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -40,7 +37,7 @@ import java.sql.SQLException;
  * This application is made for mobile internet based connection and planned for small data trafic. The data security was important, therefore it based two database (local and remoted)
  * The connection is monitored while running the application, if the connection has broken, you can work in the application, because everything is storing into your local database,
  * and when the connection will fixed, you can synchronize your database. This application supported the multi client working, it means if more than one client using this application,
- * everybody will see the newest versions of applicant atributes. There is automatic synchronizing, the period time can be configurable in preferences.
+ * everybody will see the newest versions of applicant attributes. There is automatic synchronizing, the period time can be configurable in preferences.
  *
  * @author Ilyés Imre
  * @version 1.0
@@ -236,7 +233,6 @@ public class MainApp extends Application {
         logger.info("Showing login window...");
         SetActiveWindow(loginWindow);
         primaryStage.show();
-
     }
 
     /**
@@ -418,20 +414,23 @@ public class MainApp extends Application {
             dialogStage.setScene(scene);
 
             AboutWindowController controller = aboutWindow.getController();
+
             controller.aboutCloseBtn.setOnAction(new EventHandler<ActionEvent>() {
+
                 @Override
                 public void handle(ActionEvent event) {
                     logger.info("Closing about window...");
                     dialogStage.close();
                 }
+
             });
+
             logger.info("Showing about window...");
             dialogStage.showAndWait();
 
         } catch (IOException e) {
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
-
     }
 
     /**
@@ -453,21 +452,22 @@ public class MainApp extends Application {
             dialogStage.setScene(scene);
 
             PreferencesWindowController prefController = preferencesWindow.getController();
+
             prefController.cancelBtn.setOnAction(new EventHandler<ActionEvent>() {
+
                 @Override
                 public void handle(ActionEvent event) {
                     logger.info("Closing preferences window...");
                     dialogStage.close();
                 }
+
             });
+
             logger.info("Showing preferences window...");
             dialogStage.showAndWait();
 
         } catch (IOException e) {
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
-
     }
-
-
 }

@@ -8,7 +8,6 @@ import models.Applicant;
 import models.Client;
 import models.EntityManagerFactoryHelper;
 import services.OfflineService;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
@@ -85,6 +84,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         Query query = eManager.createQuery(queryString).setParameter("username", username).setParameter("password", LoginWindowController.encryptPassword(password)).setParameter("status", 1);
         if(query.getResultList().size() == 1){
             List<Applicant> applicantList = null;
+
             if(HomeWindowController.networkStatus || MainApp.hasNetConnection()) {
                 try {
                     MainApp.logger.info("Getting applicants from remoted database...");
@@ -103,7 +103,6 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
             eManager.close();
             return false;
         }
-
     }
 
     /**
@@ -126,6 +125,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         for (Client client : clients) {
             user = client;
         }
+
         eManager.close();
         return user;
     }
@@ -142,6 +142,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         if(HomeWindowController.networkStatus == null){
             HomeWindowController.networkStatus = MainApp.hasNetConnection();
         }
+
         if(HomeWindowController.networkStatus){
             MainApp.logger.info("Connected to remoted database, getting applicants...");
             emfactory = mysqlconnection.getEmFactory();
@@ -155,7 +156,6 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
             eManager.close();
         }
 
-
         return applicantList;
     }
 
@@ -167,9 +167,11 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
     @Override
     public int countMysqlApplicants() throws SQLException {
         List<Applicant> applicantList = new ArrayList<>();
+
         if(HomeWindowController.networkStatus == null){
             HomeWindowController.networkStatus = MainApp.hasNetConnection();
         }
+
         if(HomeWindowController.networkStatus){
             emfactory = mysqlconnection.getEmFactory();
             eManager = emfactory.createEntityManager();
@@ -212,8 +214,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
                     Query query = eManager.createQuery(queryString).setParameter("applicant_id", applicant.getApplicant_id()).setMaxResults(1);
 
                     List<Applicant> applicantResult = new ArrayList<>();
-                            applicantResult.addAll(query.getResultList());
-
+                    applicantResult.addAll(query.getResultList());
 
                     if(applicantResult.size() != 0) {
                         for (Applicant applicantMysql : applicantResult) {
@@ -227,11 +228,11 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
                                     MainApp.logger.info(applicant.getClientName() + " is newer in offline database...");
                                     aList.add(applicant);
                                 }
-
                             }
                         }
                     }
         }
+
         if(aList.size() != 0) {
             MainApp.logger.info("Refreshing applicants...");
             for (Applicant app : aList) {
@@ -241,15 +242,15 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
                 int result = updateApplicant.executeUpdate();
             }
         }
-            eManager.getTransaction().commit();
-            eManager.close();
-            return true;
+
+        eManager.getTransaction().commit();
+        eManager.close();
+        return true;
         }
         else {
             eManager.close();
             return false;
         }
-
     }
 
     /**
@@ -301,15 +302,11 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
                         Query update = eManager.createQuery(updateString).setParameter("applicant_status", status).setParameter("modified_date", modified_date).setParameter("modified_time", modified_time).setParameter("applicant_id", applicant_id);
                         int result = update.executeUpdate();
                     }
-
-
                 }
             }
+
             eManager.getTransaction().commit();
             eManager.close();
-
         }
-
     }
-
 }

@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import main.MainApp;
 import models.Setting;
 import services.OfflineService;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +97,7 @@ public class PreferencesWindowController {
      */
     @FXML
     private void initialize() {
+
         try {
             connectType.getItems().add("http://");
             connectType.getItems().add("https://");

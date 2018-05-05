@@ -50,7 +50,7 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
      */
     public OfflineDao() throws SQLException {
         MainApp.logger.info("Connecting in processing...");
-        connection = DriverManager.getConnection("jdbc:sqlite:C:/debrunwayrun/src/main/resources/localDatabase/localdb.sqllite");
+        connection = DriverManager.getConnection("jdbc:sqlite:C:/debrun/src/main/resources/localDatabase/localdb.sqllite");
         statement = connection.createStatement();
         statement.setQueryTimeout(30);
     }
@@ -140,6 +140,7 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
         String getClientSqlString = "SELECT * FROM clients WHERE username = '" + username + "' limit 1;";
         ResultSet userResults = statement.executeQuery(getClientSqlString);
         Client client = null;
+
         while(userResults.next()){
             client = new Client();
             client.setId(userResults.getInt("id"));
@@ -150,6 +151,7 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
             client.setStatus(userResults.getInt("status"));
             client.setEnabledStatus(userResults.getBoolean("enabledStatus"));
         }
+
         statement.close();
         return client;
     }
@@ -164,13 +166,13 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
         connection = DriverManager.getConnection("jdbc:sqlite:C:/debrunwayrun/src/main/resources/localDatabase/localdb.sqllite");
         statement = connection.createStatement();
         statement.setQueryTimeout(30);
+
         if(!applicantDatabaseFile.exists()) {
             MainApp.logger.info("Creating local database file...");
             statement.executeUpdate("create table debrun_applicants (id int PRIMARY KEY, start_number int NULL, applicant_id VARCHAR(255), order_id int, product_id int, applicant_number int, clientName VARCHAR(255), clientGender VARCHAR(255), tshirtSize VARCHAR(255), clientBirthDate int, clientEmail VARCHAR(255), qrcode Text, registration_date TIMESTAMP NULL, modified_date DATE NULL, modified_time TIME NULL,  notes Text, completed_status TINYINT, applicant_status TINYINT, trash_status TINYINT, loggedInStatus TINYINT);");
         }
 
         statement.close();
-
     }
 
     /**
@@ -180,7 +182,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
      */
     @Override
     public List<Applicant> getAllApplicantFromSqlLite() throws SQLException {
-        //sqlLiteConnection();
         MainApp.logger.info("Getting applicants from local database...");
         List<Applicant> applicantList = new ArrayList<>();
         String getAllApplicantSqlString = "SELECT * FROM debrun_applicants;";
@@ -219,8 +220,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
             if(rs.getString("modified_time").compareTo("null") != 0){
                 String readedTime = rs.getString("modified_time");
-
-
                 LocalTime modified_time = null;
 
                 if(readedTime.length() == 5){
@@ -228,7 +227,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                 }
                 else if(readedTime.length() >= 6){
                     modified_time = LocalTime.of(Integer.valueOf(readedTime.substring(0,2)), Integer.valueOf(readedTime.substring(3,5)), Integer.valueOf(readedTime.substring(6,8)));
-
                 }
                 actualApplicant.setModified_time(modified_time);
             }
@@ -250,8 +248,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
             actualApplicant.setLoggedInStatus(rs.getInt("loggedInStatus"));
             applicantList.add(actualApplicant);
         }
-
-
         statement.close();
         return applicantList;
     }
@@ -387,8 +383,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
             if(rs.getString("modified_time").compareTo("null") != 0){
                 String readedTime = rs.getString("modified_time");
-
-
                 LocalTime modified_time = null;
 
                 if(readedTime.length() == 5){
@@ -396,7 +390,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                 }
                 else if(readedTime.length() >= 6){
                     modified_time = LocalTime.of(Integer.valueOf(readedTime.substring(0,2)), Integer.valueOf(readedTime.substring(3,5)), Integer.valueOf(readedTime.substring(6,8)));
-
                 }
                 actualApplicant.setModified_time(modified_time);
             }
@@ -418,7 +411,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
             applicantList.add(actualApplicant);
         }
-
         statement.close();
         return applicantList;
     }
@@ -436,13 +428,13 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
         MainApp.logger.info("Modifiing applicant in local database...");
         String changeStatusApplicantSqlString = "UPDATE debrun_applicants SET applicant_status = '" + status + "', modified_date = '" + modified_date + "', modified_time = '" + modified_time + "' WHERE applicant_id = '" + applicant_id + "';";
         statement.executeUpdate(changeStatusApplicantSqlString);
+
         if(HomeWindowController.networkStatus) {
             if(HomeWindowController.networkStatus && mysqlservice == null){
                 mysqldao = new MysqlDao();
                 mysqlservice = new MysqlService(mysqldao);
             }
             mysqlservice.updateApplicant(applicant_id, status, LocalDateTime.of(modified_date, modified_time));
-
         }
         statement.close();
     }
@@ -463,7 +455,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                 mysqldao = new MysqlDao();
                 mysqlservice = new MysqlService(mysqldao);
             }
-
 
             for (Applicant applicant : mysqlservice.getAllApplicantsFromMysql()) {
                 MainApp.logger.info(applicant.getClientName() + " (id: " + applicant.getId()+ ")" + " from remoted database has imported...");
@@ -493,7 +484,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                         actualApplicant.setRegistration_date(null);
                     }
 
-
                     if(rs.getString("modified_date").compareTo("null") != 0){
                         String readedDate = rs.getString("modified_date");
                         LocalDate date = LocalDate.of(Integer.valueOf(readedDate.substring(0,4)), Integer.valueOf(readedDate.substring(5,7)),Integer.valueOf(readedDate.substring(8,10)));
@@ -505,8 +495,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
 
                     if(rs.getString("modified_time").compareTo("null") != 0){
                         String readedTime = rs.getString("modified_time");
-
-
                         LocalTime modified_time = null;
 
                         if(readedTime.length() == 5){
@@ -514,7 +502,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                         }
                         else if(readedTime.length() >= 6){
                             modified_time = LocalTime.of(Integer.valueOf(readedTime.substring(0,2)), Integer.valueOf(readedTime.substring(3,5)), Integer.valueOf(readedTime.substring(6,8)));
-
                         }
                         actualApplicant.setModified_time(modified_time);
                     }
@@ -559,7 +546,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                         }
 
                         if(appSqlLite.getModified() == null && applicant.getModified() != null){
-
                             String changeStatusApplicantSqlString = "UPDATE debrun_applicants SET applicant_status = '" + applicant.getApplicant_status() + "', modified_date = '" + applicant.getModified_date() + "', modified_time = '" + applicant.getModified_time() + "' WHERE applicant_id = '" + applicant.getApplicant_id() + "';";
                             statement.executeUpdate(changeStatusApplicantSqlString);
                             MainApp.logger.info("Modified applicant: " + applicant.getId() + " " + applicant.getClientName());
@@ -568,21 +554,16 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                             String changeStatusApplicantSqlString = "UPDATE debrun_applicants SET applicant_status = '" + applicant.getApplicant_status() + "', modified_date = '" + applicant.getModified_date() + "', modified_time = '" + applicant.getModified_time() + "' WHERE applicant_id = '" + applicant.getApplicant_id() + "';";
                             statement.executeUpdate(changeStatusApplicantSqlString);
                             MainApp.logger.info("Modified applicant: " + applicant.getId() + " " + applicant.getClientName());
-
                         }
                     }
                 }
-
         }
-
         statement.close();
         }
 
         applicants.addAll(getAllApplicantFromSqlLite());
         return applicants;
-
     }
-
 
     /**
      * Counting applicants in local SqlLite database.
@@ -606,6 +587,7 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
     @Override
     public int countMysqlApplicants() throws SQLException {
         HomeWindowController.networkStatus = MainApp.hasNetConnection();
+
         if (HomeWindowController.networkStatus) {
             if(mysqlservice == null){
                 mysqldao = new MysqlDao();
@@ -626,14 +608,14 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
      */
     @Override
     public boolean sendApplicantsToMysql() throws SQLException {
+
         if(HomeWindowController.networkStatus == null){
             HomeWindowController.networkStatus = MainApp.hasNetConnection();
         }
+
         if(HomeWindowController.networkStatus) {
             mysqldao = new MysqlDao();
             mysqlservice = new MysqlService(mysqldao);
-            if(mysqlservice == null){
-            }
             MainApp.logger.info("Applicant sending for remoted database...");
             return mysqlservice.sendApplicantsToMysql();
         }
@@ -669,6 +651,7 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
             String getConfigSqlString = "SELECT * FROM preferences WHERE configKey = '" + setting.getConfigKey() + "' LIMIT 1;";
             ResultSet result = statement.executeQuery(getConfigSqlString);
             List<Setting> settingResultList = new ArrayList<>();
+
             while(result.next()){
                 Setting sett = new Setting();
                 sett.setConfigKey(result.getString("configKey"));
@@ -685,7 +668,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
                 String updateConfigSqlString = "UPDATE preferences SET configValue = '" + setting.getConfigValue() +"' WHERE configKey = '" + setting.getConfigKey() + "';";
                 statement.executeUpdate(updateConfigSqlString);
             }
-
         }
         statement.close();
     }
@@ -698,8 +680,6 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
      */
     @Override
     public Setting getPreference_by_key(String configKey) throws SQLException {
-        //String createTable = "CREATE TABLE preferences (id INTEGER PRIMARY KEY AUTOINCREMENT, configKey VARCHAR(256), configValue VARCHAR(256)); CREATE UNIQUE INDEX preferences_id_uindex ON preferences (id);";
-        //statement.executeQuery(createTable);
         String getSettingSqlString = "SELECT * FROM preferences WHERE configKey = '" + configKey + "' LIMIT 1;";
         ResultSet result = statement.executeQuery(getSettingSqlString);
 
@@ -712,6 +692,4 @@ public class OfflineDao implements OfflineDaoInterface<Applicant> {
         statement.close();
         return setting;
     }
-
-
 }

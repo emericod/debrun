@@ -5,7 +5,6 @@ import interfaces.OfflineServiceInterface;
 import models.Applicant;
 import models.Client;
 import models.Setting;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -37,7 +36,6 @@ public class OfflineService implements OfflineServiceInterface<Applicant> {
     public OfflineService(OfflineDao dao) {
         this.dao = dao;
     }
-
 
     /**
      * This method is doing the user authentication by usernam and password in the local SqlLite database.
@@ -184,6 +182,4 @@ public class OfflineService implements OfflineServiceInterface<Applicant> {
     public Setting getPreference_by_key(String config_key) throws SQLException {
         return dao.getPreference_by_key(config_key);
     }
-
-
 }

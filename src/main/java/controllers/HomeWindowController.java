@@ -40,6 +40,7 @@ class checkNetwork extends Task<Integer>{
             Thread.sleep(Integer.valueOf(service.getPreference_by_key("check_connection_period").getConfigValue()));
             MainApp.logger.info("Checking network...");
         }
+
         if(isCancelled()){
             return 0;
         }
@@ -125,7 +126,7 @@ public class HomeWindowController{
 
         try {
             MainApp.logger.info("Getting all applicants");
-            applicantCollection = service.getAllApplicantsFromMysql();
+                applicantCollection = service.getAllApplicantsFromMysql();
         } catch (SQLException e) {
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
@@ -232,7 +233,6 @@ public class HomeWindowController{
             applicantTable.getItems().addAll(applicantList);
 
             id.setCellValueFactory(new PropertyValueFactory<Applicant, String>("id"));
-            //applicant_status.setCellValueFactory(new PropertyValueFactory<Applicant, Boolean>("applicant_status"));
             applicant_status.setCellValueFactory(new PropertyValueFactory<Applicant, String>("applicantStatusString"));
             applicant_id.setCellValueFactory(new PropertyValueFactory<Applicant, String>("applicant_id"));
             clientName.setCellValueFactory(new PropertyValueFactory<Applicant, String>("clientName"));
@@ -281,7 +281,6 @@ public class HomeWindowController{
     TableColumn applicant_number = new TableColumn("Nevező szám");
     TableColumn registration_date = new TableColumn("Regisztáció dátuma");
     TableColumn modified = new TableColumn("Módosítva");
-
 
     MainApp.logger.info("Setting columns...");
     applicantTable.getColumns().add(id);
@@ -355,7 +354,6 @@ public class HomeWindowController{
         }
         MainApp.logger.info("Loading applicant results into tableview...");
         loadApplicants(applicantList);
-
     }
 
     /**
@@ -376,5 +374,4 @@ public class HomeWindowController{
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
     }
-
 }
