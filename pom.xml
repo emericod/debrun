@@ -200,6 +200,14 @@
                     <generateHtml>true</generateHtml>
                     <jdk>1.6</jdk>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>instrument</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -225,7 +233,7 @@
                 <artifactId>clover-maven-plugin</artifactId>
                 <configuration>
                     <generateHistorical>true</generateHistorical>
-                    <historyDir>target/clover/</historyDir>
+                    <historyDir>target/clover</historyDir>
                 </configuration>
             </plugin>
             <plugin>

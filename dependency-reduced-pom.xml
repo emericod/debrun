@@ -114,7 +114,16 @@
         <groupId>org.openclover</groupId>
         <artifactId>clover-maven-plugin</artifactId>
         <version>4.2.1</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>instrument</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
+          <targetPercentage>70%</targetPercentage>
           <excludes>
             <exclude>**/view/**</exclude>
           </excludes>
@@ -159,7 +168,7 @@
         <artifactId>clover-maven-plugin</artifactId>
         <configuration>
           <generateHistorical>true</generateHistorical>
-          <historyDir>target/clover/</historyDir>
+          <historyDir>target/clover</historyDir>
         </configuration>
       </plugin>
       <plugin>
