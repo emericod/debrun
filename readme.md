@@ -16,7 +16,7 @@ Installation:
 5. You can test it without internet (disable the network adapters) or with network.
 6. For generating reports and documentation first type "mvn clover:instrument"
 7. After enter type "mvn site" and you can find it in the /target/site/ folder
-8. Click the checkstyle.xml file.
+8. Click the checkstyle.html file.
 
 Requirements: Java 8 
 
