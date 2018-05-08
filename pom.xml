@@ -192,7 +192,7 @@
                 <version>4.2.1</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/view/**</exclude>
+                        <exclude>**/views/**</exclude>
                     </excludes>
                     <generateHistorical>true</generateHistorical>
                     <includesTestSourceRoots>true</includesTestSourceRoots>
