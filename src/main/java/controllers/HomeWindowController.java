@@ -99,7 +99,7 @@ public class HomeWindowController{
     @FXML
     public TableView<Applicant> applicantTable;
 
-    /** Controller
+    /** Controller.
      * Constructor of HomeWindowController.
      */
     public HomeWindowController() {
@@ -113,7 +113,7 @@ public class HomeWindowController{
     }
 
     /** Autorun method.
-     * Initialize is first method what runs when the gui components is loaded.
+     * Initialize is first method what runs when the gui components are loaded.
      */
     @FXML
     protected void initialize(){

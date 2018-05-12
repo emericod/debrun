@@ -93,7 +93,7 @@ public class PreferencesWindowController {
     public Button cancelBtn;
 
     /** Autorun method.
-     * Initialize is first method what runs automatically when the gui components is loaded.
+     * Initialize is first method what runs automatically when the gui components are loaded.
      */
     @FXML
     private void initialize() {

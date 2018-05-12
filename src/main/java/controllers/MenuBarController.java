@@ -77,7 +77,7 @@ public class MenuBarController {
     }
 
     /** Autorun method.
-     * Initialize is first method what runs automatically when the gui components is loaded.
+     * Initialize is first method what runs automatically when the gui components are loaded.
      */
     @FXML
     protected void initialize(){
