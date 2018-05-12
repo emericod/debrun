@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/** Network monitoring thread.
  * CheckNetwork is class of check network connection on new thread.
  * @author Ilyés Imre
  * @version 1.0
@@ -25,7 +25,7 @@ import java.util.List;
  */
 class checkNetwork extends Task<Integer>{
 
-    /**
+    /** Call method.
      * Call method is implemented method of Task<Integer>.
      * @return 1, if the task is active, else 0 if the task cancelled.
      * @throws Exception when is there any problem at the thread running.
@@ -49,7 +49,7 @@ class checkNetwork extends Task<Integer>{
 }
 
 
-/**
+/** Home Window Controller.
  * HoneWindowController is controller class of Home window.
  * In this class can communicate the DAO service with the homeWindow view.
  * @author Ilyés Imre
@@ -57,49 +57,49 @@ class checkNetwork extends Task<Integer>{
  * @since 2018-04-08
  */
 public class HomeWindowController{
-    /**
+    /** DAO.
      * Offline DAO.
      */
     private OfflineDao dao;
 
-    /**
+    /** Service.
      * Offline Service of Offline DAO.
      */
     private OfflineService service;
 
-    /**
-     * Global network status, the network monitoring is modifying this.
+    /** Network status.
+     * Global network status, the network monitoring is modifying this. True if the client is connecting to the remoted database, false if the connection is not available.
      */
     public static Boolean networkStatus;
 
-    /**
+    /** Stage Dialog.
      * Dialog of Applicant's details.
      */
     public static Stage dialog;
 
-    /**
+    /** Selected Applicant.
      * Selected Applicant in TableView.
      */
     public static Applicant selectedApplicant;
 
-    /**
+    /** Applicant list collection.
      * List of applicants from database.
      */
     public List<Applicant> applicantCollection;
 
-    /**
+    /** Search box input field.
      * TextField of searchBox.
      */
     @FXML
     private TextField searchBox;
 
-    /**
+    /** Applicant table view.
      * Tableview of Applicant's list.
      */
     @FXML
     public TableView<Applicant> applicantTable;
 
-    /**
+    /** Controller
      * Constructor of HomeWindowController.
      */
     public HomeWindowController() {
@@ -112,7 +112,7 @@ public class HomeWindowController{
         networkStatus = false;
     }
 
-    /**
+    /** Autorun method.
      * Initialize is first method what runs when the gui components is loaded.
      */
     @FXML
@@ -152,23 +152,21 @@ public class HomeWindowController{
         StatusBarController controller = MainApp.actualStatusbarController;
     }
 
-    /**
-     * Getter of SearchBox.
+    /** Getter of SearchBox.
      * @return Textfield of searchbox.
      */
     public TextField getSearchBox() {
         return searchBox;
     }
 
-    /**
-     * Setter of SearchBox.
+    /** Setter of SearchBox.
      * @param searchBox is Textfield of searchbox.
      */
     public void setSearchBox(TextField searchBox) {
         this.searchBox = searchBox;
     }
 
-    /**
+    /** Applicant loader into the tableview.
      * LoadApplicants is method, what loads the applicants into the home window's tableview.
      * @param applicantList list of applicants.
      */
@@ -250,7 +248,7 @@ public class HomeWindowController{
         }
     }
 
-    /**
+    /** Applicant tableview reloader by click event.
      * refreshTableview is method, what reload applicants when the applicant list or applicants property has changed.
      * @param event is left mouse click on tablewiew.
      */
@@ -339,7 +337,7 @@ public class HomeWindowController{
     }
 }
 
-    /**
+    /** Applicant finder by keypress event.
      * FindApplicantsByKeyword is method, what search applicants by keyword of searchfield.
      * @param keyevent is typing keyword in the search textfield.
      */
@@ -356,14 +354,14 @@ public class HomeWindowController{
         loadApplicants(applicantList);
     }
 
-    /**
+    /** Tableview reloader.
      * refreshTable is callable manually to refresh tableview in home window.
      */
     public void refreshTable(){
         applicantTable.refresh();
     }
 
-    /**
+    /** Applicant synchronizer (from remoted database for local database).
      * syncRefresh is method, what can load applicant's data from the remoted database.
      */
     public void syncRefresh(){

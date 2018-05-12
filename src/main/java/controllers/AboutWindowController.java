@@ -10,8 +10,8 @@ import javafx.scene.control.Button;
  */
 public class AboutWindowController {
 
-    /**
-     * This button is close about dialog.
+    /** Close button of the about dialog.
+     * This button is the button in the GUI.
      */
     @FXML
     public Button aboutCloseBtn;

@@ -17,19 +17,19 @@ import java.util.List;
 
 public class MysqlService implements MysqlServiceInterface<Applicant>{
 
-    /**
+    /** DAO.
      * Online DAO.
      */
     private MysqlDao dao;
 
-    /**
+    /** Service.
      * Constructor of MysqlService.
      */
     public MysqlService() {
         super();
     }
 
-    /**
+    /** Constructor.
      * Constructor of MysqlService.
      * @param dao is Mysql DAO.
      */
@@ -37,7 +37,7 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         this.dao = dao;
     }
 
-    /**
+    /** User authentication method in remoted database.
      * This method authenticate user when try logging in.
      * @param username is user name.
      * @param password is password of user.
@@ -48,7 +48,16 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         return dao.checkUserLogedIn(username, password);
     }
 
-    /**
+    /** Getting all clients from remoted database.
+     * This method is getting the client list from remoted database.
+     * @return List of Client
+     */
+    @Override
+    public List<Client> getAllClientsFromMysql() {
+        return dao.getAllClientsFromMysql();
+    }
+
+    /** Search client by username from remoted database.
      * Getting user by username parameter.
      * @param username is user name.
      * @return result of Client.
@@ -58,8 +67,8 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         return dao.getUserByUsername(username);
     }
 
-    /**
-     * Getting all applicants from remoted database.
+    /** Getting all applicants from remoted database.
+     * This method list all Applicants from the remoted database.
      * @return list of applicant results.
      * @throws SQLException if there is any problem with SQL database.
      */
@@ -67,8 +76,8 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
     public List<Applicant> getAllApplicantsFromMysql() throws SQLException {
         return dao.getAllApplicantsFromMysql();    }
 
-    /**
-     * Counting Applicants from remoted database.
+    /** Count applicants in remoted database.
+     * This method counting Applicants in remoted database.
      * @return number of counted applicants.
      * @throws SQLException if there is any problem with SQL database.
      */
@@ -77,8 +86,8 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         return dao.countMysqlApplicants();
     }
 
-    /**
-     * Sending all Applicants for remoted database.
+    /** Sending applicants for remoted database.
+     * Sending applicants from local SqlLite database for remoted database.
      * @return true, if the operation is succeed, else returns false.
      * @throws SQLException if there is any problem with SQL database.
      */
@@ -87,8 +96,8 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         return dao.sendApplicantsToMysql();
     }
 
-    /**
-     * Synchronizing last modified Applicants between the local SqlLite database and the remoted database.
+    /** Database synchronizer method (both side).
+     * Synchronizing database with the latest modified applicants.
      * @throws SQLException if there is any problem with SQL database.
      */
     @Override
@@ -96,8 +105,8 @@ public class MysqlService implements MysqlServiceInterface<Applicant>{
         dao.syncDatabase();
     }
 
-    /**
-     * Update applicant by parameter in the remotes parameter.
+    /** Applicant updater method.
+     * Updating applicant status in the local SqlLite database.
      * @param applicant_id is ID of applicant.
      * @param status is logged in status of applicant.
      * @param modified is modify datetime of applicant.

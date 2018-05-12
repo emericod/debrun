@@ -18,53 +18,53 @@ import java.sql.SQLException;
  * @since 2018-04-08
  */
 public class MenuBarController {
-    /**
+    /** DAO.
      * Offline DAO.
      */
     private OfflineDao offlineDao;
 
-    /**
+    /** Service.
      * Service of Offline DAO.
      */
     private OfflineService offlineService;
 
-    /**
+    /** Preferences menü item.
      * MenuItem of settings.
      */
     @FXML
     private MenuItem settingsMenu;
 
-    /**
-     * MenuItem of exit.
+    /** MenuItem of exit.
+     * Exit from application menu item.
      */
     @FXML
     private MenuItem exitBtn;
 
-    /**
-     * MenuItem of synchronizing.
+    /** MenuItem of synchronizing.
+     * Synchronize menu item, you can synchronize the local and remoted database (both side sync).
      */
     @FXML
     private MenuItem syncButton;
 
-    /**
-     * MenuItem of getting synchronizing from remote database.
+    /** One side synchronizing from remoted database for local database.
+     * MenuItem of getting applicant list from remote database (just the newer modified datetime than local applicants).
      */
     @FXML
     private MenuItem getSyncButton;
 
-    /**
-     * MenuItem of setting synchronizing from remote database.
+    /** One side synchronizing from local database for remoted database.
+     * MenuItem of setting synchronizing from remote database. (just the newer modified datetime than remoted database's applicants).
      */
     @FXML
     private MenuItem sendSyncButton;
 
-    /**
+    /** About menu item.
      * MenuItem of showing about dialog.
      */
     @FXML
     private MenuItem aboutMenuItem;
 
-    /**
+    /** Controller.
      * Controller of menu bar.
      */
     public MenuBarController() {
@@ -76,14 +76,14 @@ public class MenuBarController {
         }
     }
 
-    /**
+    /** Autorun method.
      * Initialize is first method what runs automatically when the gui components is loaded.
      */
     @FXML
     protected void initialize(){
     }
 
-    /**
+    /** Exit from application by select exit menuitem event.
      * If the user select exit on home window's menubar, the application is closing.
       * @param event left mouse click, when the user select the exit menuItem in file menu.
      */
@@ -91,7 +91,7 @@ public class MenuBarController {
         MainApp.primaryStage.close();
     }
 
-    /**
+    /** Synchronizing method (both side).
      * If the user select syncronizing database on home window's menubar, this method synchronizing the local and remoted database.
      * @param event is select event synchronizing menuItem from database menu.
      */
@@ -112,7 +112,7 @@ public class MenuBarController {
         }
     }
 
-    /**
+    /** One side synchronizing to remote database method.
      * If the user select send datas to remote database from home window's menubar, in this method sending and modifying the local newer modified applicant's data to the remoted database.
      * @param event is select event with left mouse click send modified applicants to remoted database.
      */
@@ -126,7 +126,7 @@ public class MenuBarController {
         }
     }
 
-    /**
+    /** One side synchronizing to local database method.
      * If the user select the get applicants from the remoted database, this method get the newer modified applicants from remoted database and storing or modifying in the local database.
      * @param event is select event with left mouse click on sync both-side (from local database for remoted database and remoted database for local database).
      * @throws SQLException is there any problem with remote or local SQL database.
@@ -143,15 +143,15 @@ public class MenuBarController {
         }
     }
 
-    /**
-     * Showing the about dialog.
+    /** Show about method.
+     * Open the about dialog.
      * @param event is select with left mouse click the about dialog from help menu.
      */
     public void openAboutLeftMouseClicked(ActionEvent event){
         MainApp.showAboutDialog();
     }
 
-    /**
+    /** Show preferences method.
      * Open preferences dialog.
      * @param event is select event with left mouse click on preferences menuItem in file menu.
      */
@@ -159,7 +159,7 @@ public class MenuBarController {
         MainApp.showPreferencesDialog();
     }
 
-    /**
+    /** Check active and inactive menu items in menubar.
      * Checking menuItem availability by connection status.
      * @param status is the Remoted database options are allowed in menuItems of main menubar.
      */

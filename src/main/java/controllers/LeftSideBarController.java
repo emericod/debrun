@@ -14,13 +14,13 @@ import main.MainApp;
 
 public class LeftSideBarController {
 
-    /**
+    /** Actual logged in user.
      * Label of logged in applicant's name.
      */
     @FXML
     private Label activeUserLabel;
 
-    /**
+    /** Autorun method.
      * This method is running automatically when the sidebar is loaded.
      * In this is writing the name of logged-in user.
      */
@@ -30,7 +30,7 @@ public class LeftSideBarController {
         activeUserLabel.setText(MainApp.actualUser.getFirstName() + " " + MainApp.actualUser.getLastName());
     }
 
-    /**
+    /** Logout from the application.
      * In this method is running when the user is clicked to the logout button.
      * This is closing the home view and open the login view.
      * @param event Basically this is the mouse left click event.

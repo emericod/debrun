@@ -16,30 +16,30 @@ import java.time.LocalDate;
  * @since 2018-04-08
  */
 public class StatusBarController{
-    /**
+    /** Network status variable.
      * SimpleStringProperty of network status.
      */
     public SimpleStringProperty netw;
 
-    /**
+    /** Network status label in GUI.
      * Label of network status.
      */
     @FXML
     private Label networkstatus;
 
-    /**
+    /** Applicant counter in GUI.
      * Label of applicant counter.
      */
     @FXML
     private Label applicantCounter;
 
-    /**
+    /** The today label.
      * Label of right bottom.
      */
     @FXML
     private Label labelRight;
 
-    /**
+    /** Autorun method.
      * Initialize is first method what runs automatically when the gui components is loaded.
      */
     @FXML
@@ -56,7 +56,7 @@ public class StatusBarController{
         }
     }
 
-    /**
+    /** Newtwork status changer method.
      * This method runs when the network status has changed.
      * This change the network connection status by the parameter.
      * @param content is network status text content ("Kapcsolódva" or "Nincs kapcsolat").
@@ -70,7 +70,7 @@ public class StatusBarController{
         });
     }
 
-    /**
+    /** Setter.
      * Setter of StatusBarNetwork.
      * @param statusBarNetworkStatus is network status text content ("Kapcsolódva" or "Nincs kapcsolat").
      */

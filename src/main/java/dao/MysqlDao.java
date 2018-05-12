@@ -26,32 +26,31 @@ import java.util.List;
  */
 public class MysqlDao implements MysqlDaoInterface<Applicant> {
 
-    /**
+    /** Remote database conenction.
      * Default EntityManagerFactory.
      */
     private EntityManagerFactory emfactory;
 
-    /**
-     * EntityManager.
+    /** EntityManager.
      */
     private EntityManager eManager;
 
-    /**
+    /** DAO.
      * Offline DAO.
      */
     OfflineDao offlineDao;
 
-    /**
+    /** Service.
      * Offline service of Offline DAO.
      */
     OfflineService offlineService;
 
-    /**
+    /** Helper for create database connection.
      * EntityManagerFactoryHelper for remote connection.
      */
     private EntityManagerFactoryHelper mysqlconnection;
 
-    /**
+    /** Constructor.
      * Constructor of MysqlDao.
      * @throws SQLException if there is any problem with the remoted database.
      */
@@ -68,7 +67,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         offlineService = new OfflineService(offlineDao);
     }
 
-    /**
+    /** User authentication method in remoted database.
      * Implemented method of MysqlDao interface.
      * This method checking the user authentication by username and password.
      * @param username is user name.
@@ -105,7 +104,24 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         }
     }
 
-    /**
+    /** Getting all clients from remoted database.
+     * This method getting the client list what created by website admin.
+     * @return list of client.
+     */
+    @Override
+    public List<Client> getAllClientsFromMysql() {
+        List<Client> clientlist = null;
+        eManager = emfactory.createEntityManager();
+        eManager.getTransaction().begin();
+        String queryString = "SELECT c FROM Client c";
+        Query query = eManager.createQuery(queryString);
+
+        clientlist = query.getResultList();
+        eManager.close();
+        return clientlist;
+    }
+
+    /** Search client by username from remoted database.
      * This method is implemented method of MysqlDao interface.
      * This method search Applicant by parameter / username.
       * @param username is user name.
@@ -130,7 +146,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         return user;
     }
 
-    /**
+    /** Getting all applicants from remoted database.
      * This method list all Applicants from the remoted database.
      * @return the list of results.
      * @throws SQLException if there is any problem with remoted SQL database.
@@ -159,7 +175,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         return applicantList;
     }
 
-    /**
+    /** Count applicants in remoted database.
      * This method counting Applicants in remoted database.
      * @return int, the number of counted applicants.
      * @throws SQLException if there is any problem with remoted SQL database.
@@ -189,7 +205,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         }
     }
 
-    /**
+    /** Sending applicants for remoted database.
      * This method sending the modified applicants from local SqlLite database for remoted database.
      * @return boolean, true, if the transaction was succeed, else returns false.
      * @throws SQLException if there is any problem with remoted SQL database.
@@ -253,7 +269,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         }
     }
 
-    /**
+    /** Database synchronizer method (both side).
      * This method calling the sendApplicantsToMysql and getAllApplicantsFromMysql methods.
      * @throws SQLException if there is any problem with remoted SQL database.
      */
@@ -265,7 +281,7 @@ public class MysqlDao implements MysqlDaoInterface<Applicant> {
         getAllApplicantsFromMysql();
     }
 
-    /**
+    /** Applicant updater method.
      * This method updates the Applicant in the remoted database when the network connection is available.
      * @param applicant_id is ID of applicant.
      * @param status is logged in status of applicant.

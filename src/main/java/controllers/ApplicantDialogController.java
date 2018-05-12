@@ -12,7 +12,7 @@ import models.Applicant;
 import services.OfflineService;
 import java.sql.SQLException;
 
-/**
+/** Controller of Applicant dialog.
  * ApplicantDialogController is controller class of applicants's dialog panel.
  * @author Ilyés Imre
  * @version 1.0
@@ -20,94 +20,93 @@ import java.sql.SQLException;
  */
 public class ApplicantDialogController {
 
-    /**
+    /** Applicant ID.
      * Textfield of applicant's ID.
      */
     @FXML
     private TextField applicant_id;
 
-    /**
+    /** Client name.
      * TextField of applicant's name.
      */
     @FXML
     private TextField clientName;
 
-    /**
+    /** Applicant status.
      * TextField of applicant's status.
      */
     @FXML
     private ComboBox applicant_status;
 
-    /**
+    /** Applicant's race start number.
      * TextField of applicant's start number.
      */
     @FXML
     private TextField start_number;
 
-    /**
+    /** Client gender.
      * TextField of applicant's gender.
      */
     @FXML
     private TextField clientGender;
 
-    /**
+    /** Applicant tShirt size.
      * TextField of applicant's Tshirt size.
      */
     @FXML
     private TextField tshirtSize;
 
-    /**
+    /** Applicant birthdate.
      * TextField of applicant's birth year.
      */
     @FXML
     private TextField clientBirthDate;
 
-    /**
+    /** Email address.
      * TextField of applicant's email address.
      */
     @FXML
     private TextField clientEmail;
 
-    /**
+    /** Date of registration.
      * TextField of applicants's registration number.
      */
     @FXML
     private TextField registration_date;
 
-    /**
+    /** Modify button in the applicant's dialog panel.
      * Button of modify applicant's details.
      */
     @FXML
     private Button changeStatusDialog;
 
-    /**
+    /** Close button in the applicant's dialog panel.
      * Button of close dialog without any changes.
      */
     @FXML
     private Button cancelDialog;
 
-    /**
+    /** Dialog stage.
      * Stage of applicant's modify dialog.
      */
     private Stage dialogStage;
 
-    /**
+    /** Selected applicant.
      * Selected applicant in the tableview.
      */
     private Applicant selectedApplicant;
 
-    /**
+    /** Database Access Object.
      * Offline dao.
      */
     private OfflineDao dao;
 
-    /**
+    /** Service.
      * Offline service of offline dao.
      */
     private OfflineService service;
 
-    /**
-     * Constructor of ApplicantDialogController.
+    /** Constructor of ApplicantDialogController.
      */
     public ApplicantDialogController(){
         try {
@@ -118,7 +117,7 @@ public class ApplicantDialogController {
         }
     }
 
-    /**
+    /** Autorun method.
      * Initialize is first method what runs automatically when the gui components is loaded.
      */
     @FXML
@@ -128,24 +127,24 @@ public class ApplicantDialogController {
         MainApp.logger.info("Add applicant statuses to combo box");
     }
 
-    /**
-     * Setter of dialogStage.
+    /** Setter of dialogStage.
+     *
      * @param dialogStage is applicant details panel.
      */
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
 
-    /**
-     * Setter of SelectedApplicant.
+    /** Setter of SelectedApplicant.
+     *
      * @param selectedApplicant is selected applicant on tableview of home window.
      */
     public void setSelectedApplicant(Applicant selectedApplicant) {
         this.selectedApplicant = selectedApplicant;
     }
 
-    /**
-     * Setter of Applicant.
+    /** Setter of Applicant.
+     *
      * @param applicant is selected applicant.
      */
     public void setApplicant(Applicant applicant) {
@@ -215,7 +214,7 @@ public class ApplicantDialogController {
         }
     }
 
-    /**
+    /** Applicant status updater.
      * This method update applicant if any property field has changed.
      * @param event is mouse left click on modify button of applicant dialog box.
      */
@@ -233,7 +232,7 @@ public class ApplicantDialogController {
         }
     }
 
-    /**
+    /** Closing form by left mouse click event.
      * Close dialog without saving.
      * @param event is mouse left button click on button.
      */

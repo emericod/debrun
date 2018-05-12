@@ -46,89 +46,91 @@ import java.sql.SQLException;
 
 public class MainApp extends Application {
 
-    /**
+    /** Primary stage.
      * Main stage of application.
      */
     public static Stage primaryStage;
 
-    /**
+    /** Main panel.
      * Root panel of application.
      */
     public static BorderPane rootPanel;
 
-    /**
+    /** View panels.
      * Views of main windows.
      */
     public static AnchorPane loginWindow, homeWindow, dialogPanel;
 
-    /**
+    /** Loader.
      * FXML loader of about dialog.
      */
     public static FXMLLoader aboutWindow;
-    /**
+
+    /** Loader.
      * FXML loader of preferences dialog.
      */
     public static FXMLLoader preferencesWindow;
-    /**
+
+    /** Loader.
      * FXML loader of home window.
      */
     public static FXMLLoader homeWindowLoader;
-    /**
+
+    /** Controller.
      * Controller of loaded home window.
      */
     public static HomeWindowController actualHomeWindowcontroller;
 
-    /**
+    /** Controller.
      * Controller of loaded menubar.
      */
     public static MenuBarController actualMenuBarController;
 
-    /**
-     * Menubar.
+    /** Menubar.
+     * Main Menubar.
      */
     public static MenuBar menuBar;
 
-    /**
+    /** Scene.
      * Main scene of application.
      */
     private static Scene scene;
 
-    /**
+    /** Logger.
      * Logger of application.
      */
     public static Logger logger = LoggerFactory.getLogger(MainApp.class);
 
-    /**
+    /** Actual user.
      * Logged in actual user.
      */
     public static Client actualUser;
 
-    /**
-     * Dialog panel.
+    /** Dialog panel.
      */
     public static Stage dialogStage;
 
-    /**
+    /** Controller.
      * Controller of loaded statusBar.
      */
     public static StatusBarController actualStatusbarController;
 
-    /**
+    /** DAO.
      * Offline DAO.
      */
     public OfflineDao dao;
 
-    /**
+    /** Service.
      * Offline service of Offline DAO.
      */
     public OfflineService service;
 
-    /**
+    /** Loader.
      * FXML loader of status bar.
      */
     public static FXMLLoader StatusBarloader;
 
-    /**
+    /** Constructor.
      * Constructor of MainApp.
      */
     public MainApp() {
@@ -140,7 +142,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
+    /** Start method.
      * Start implemented javaFx method.
      * @param primaryStage is the main panel / window.
      * @throws Exception if there is any problem with SQL database.
@@ -235,8 +237,8 @@ public class MainApp extends Application {
         primaryStage.show();
     }
 
-    /**
-     * Main method.
+    /** Main method.
+     * Main method of application.
      * @param args are arguments of main method.
      * @throws ClassNotFoundException if there is any class not found exception.
      */
@@ -246,7 +248,7 @@ public class MainApp extends Application {
     }
 
 
-    /**
+    /** Set active Window method.
      * Setting and loading active window by parameter.
      * @param pane is a panel of views.
      */
@@ -292,7 +294,7 @@ public class MainApp extends Application {
     }
 
 
-    /**
+    /** Sidebar setter method.
      * Setting and loading sidebar.
      */
     public static void SetSidebar(){
@@ -310,7 +312,7 @@ public class MainApp extends Application {
     }
 
 
-    /**
+    /** Statusbar setter.
      * Setting and loading statusbar.
       */
     public static void SetStatusBar(){
@@ -333,7 +335,7 @@ public class MainApp extends Application {
 
     }
 
-    /**
+    /** Connection monitoring method.
      * Checking network connection.
      * @return true, if the network is available, else return false.
      */
@@ -369,7 +371,7 @@ public class MainApp extends Application {
         return status;
     }
 
-    /**
+    /** Applicant modifier dialog method.
      * Load applicant dialog and giving by parameter the selected applicant from honewindow of tableview.
      * @param applicant is object of selected applicant to load into the applicant details dialog.
      */
@@ -395,7 +397,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
+    /** About dialog loader method.
      * Loading and showing about dialog.
      */
     public static void showAboutDialog(){
@@ -433,7 +435,7 @@ public class MainApp extends Application {
         }
     }
 
-    /**
+    /** Preferences dialog loader method.
      * Loading and showing preferences dialog.
      */
     public static void showPreferencesDialog(){

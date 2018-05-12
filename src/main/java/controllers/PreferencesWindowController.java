@@ -22,77 +22,77 @@ import java.util.List;
  */
 public class PreferencesWindowController {
 
-    /**
+    /** DAO.
      * Offline DAO.
      */
     private OfflineDao dao;
 
-    /**
+    /** Service.
      * Offline service of Offline DAO.
      */
     private OfflineService service;
 
-    /**
+    /** Connection type field.
      * ComboBox of connection type (http or https).
      */
     @FXML
     private ComboBox connectType;
 
-    /**
+    /** Error or success messagebox.
      * Label of error message.
      */
     @FXML
     private Label errormessage;
 
-    /**
+    /** Host field.
      * TextField of host.
      */
     @FXML
     private TextField host;
 
-    /**
+    /** Database field.
      * TextField of database.
      */
     @FXML
     private TextField database;
 
-    /**
+    /** Username field.
      * TextField of username to access host.
      */
     @FXML
     private TextField username;
 
-    /**
+    /** Password field.
      * TextField of password to access host.
      */
     @FXML
     private TextField password;
 
-    /**
+    /** Period checking input field.
      * TextField of network checking period time.
      */
     @FXML
     private TextField checknetworkperiod;
 
-    /**
+    /** Autosync period input field.
      * TextField of autosync period time.
      */
     @FXML
     private TextField syncdbperiod;
 
-    /**
+    /** Save changes button.
      * Button of save settings.
      */
     @FXML
     private Button saveButton;
 
-    /**
+    /** Cancel button.
      * Button of close settings dialog.
      */
     @FXML
     public Button cancelBtn;
 
-    /**
+    /** Autorun method.
      * Initialize is first method what runs automatically when the gui components is loaded.
      */
     @FXML
@@ -116,10 +116,9 @@ public class PreferencesWindowController {
         } catch (SQLException e) {
             MainApp.logger.error("Source of error: " + e.getMessage());
         }
-
     }
 
-    /**
+    /** Preferences Controller.
      * Controller of PreferencesWindowController's class.
      */
     public PreferencesWindowController() {
@@ -131,7 +130,7 @@ public class PreferencesWindowController {
         service = new OfflineService(dao);
     }
 
-    /**
+    /** Save connection form.
      * This method is storing settings in the local SqlLite database when the user clicked to the modify button.
      * @param event is left mouse click event on modify button on preferences dialog.
      */
@@ -188,7 +187,7 @@ public class PreferencesWindowController {
     }
 
 
-    /**
+    /** Number field validator method.
      * This method validate the network checking and authosync fields.
      * If the field is not number, showing an error message for the user in the dialog panel.
      * else the field storing in the local SqlLite database.

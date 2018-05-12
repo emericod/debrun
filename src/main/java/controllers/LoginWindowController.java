@@ -30,50 +30,50 @@ import static main.MainApp.*;
 
 public class LoginWindowController {
 
-    /**
+    /** Applicants number.
      * Counted number of applicants in remoted database.
      */
     public static int countedMysqlApplicants;
 
-    /**
+    /** Username input field.
      * TextField of username of user.
      */
     @FXML
     private TextField userName;
 
-    /**
+    /** Password input field.
      * TextField of password of user.
      */
     @FXML
     private PasswordField password;
 
-    /**
+    /** Login button.
      * Login button on login panel.
      */
     @FXML
     private Button loginBtn;
 
-    /**
-     * Label of login message.
+    /** Label of login message.
+     * Error or success messagebox in the login panel.
      */
     @FXML
     private Label loginMessage;
 
-    /**
+    /** Autorun method.
      * This method first running automatic, when loading the form.
      */
     @FXML
     protected void initialize(){
     }
 
-    /**
+    /** Constructor.
      * Constructor of LoginWindowController.
      */
     public LoginWindowController() {
         countedMysqlApplicants = 0;
     }
 
-    /**
+    /** Send user authentication by left mouse click event.
      * This method runs when the user has clicked the login button by mouse's left button.
      * checkUser method calls the checkLogin method to authenticate user.
      * @param event is mouse left click on login button.
@@ -87,7 +87,7 @@ public class LoginWindowController {
         }
     }
 
-    /**
+    /** Password encrypter method.
      * encryptPassword is encoding method from string to SHA-256.
      * @param password is password of user.
      * @return SHA-256 encoded string.
@@ -106,7 +106,7 @@ public class LoginWindowController {
         return sha256hex;
     }
 
-    /**
+    /** Send user authentication by enter key pressing event.
      * Basically same method as checkUser, this method runs when the user pressing enter key on login form.
      * This method call checkLogin method to authenticate user.
      * @param keyevent is user press ENTER on keyboard on login panel.
@@ -122,7 +122,7 @@ public class LoginWindowController {
             }
     }
 
-    /**
+    /** User authentication method.
      * Checklogin method autheticate the user by username and password.
      * If the authentication is succeed, calling the home window and set the actual user.
      * else the user getting an error message with "Authentication error" message.
@@ -137,51 +137,18 @@ public class LoginWindowController {
         }
         OfflineService sqlLiteService = new OfflineService(sqlLiteDao);
 
-        if(HomeWindowController.networkStatus){
-            MysqlDao dao = null;
-            try {
-                dao = new MysqlDao();
-            } catch (SQLException e) {
-                MainApp.logger.error("Source of error: " + e.getMessage());
-            }
-            MysqlService service = new MysqlService(dao);
+         if(sqlLiteService.userLoggedIn(userName.getText(), password.getText())){
+             MainApp.actualUser = sqlLiteService.getUserByUsername(userName.getText());
+             loginMessage.setText("");
+             userName.setText("");
+             password.setText("");
+             SetActiveWindow(MainApp.homeWindow);
+             MainApp.logger.info("User authentication is succeed, loading home window...");
+         }
+         else{
+             loginMessage.setText("A felhasználónév vagy a jelszó hibás!");
+             MainApp.logger.info("User login is denied...");
+         }
 
-            if(service.checkUserLogedIn(userName.getText(), password.getText())){
-                MainApp.logger.info("Authenticating user in remoted database...");
-                MainApp.actualUser = service.getUserByUsername(userName.getText());
-                loginMessage.setText("");
-                userName.setText("");
-                password.setText("");
-                MainApp.logger.info("User authentication is succeed, loading home window...");
-                SetActiveWindow(MainApp.homeWindow);
-
-                try {
-                    sqlLiteService.addUserToSqlLite(MainApp.actualUser);
-                } catch (SQLException e) {
-                    MainApp.logger.error("Source of error: " + e.getMessage());
-                }
-            }
-            else{
-                loginMessage.setText("A felhasználónév vagy a jelszó hibás!");
-            }
-        }
-        else{
-            MainApp.logger.info("User offline authentication...");
-            try {
-                if(sqlLiteService.userLoggedIn(userName.getText(), password.getText())){
-                    MainApp.actualUser = sqlLiteService.getUserByUsername(userName.getText());
-                    loginMessage.setText("");
-                    userName.setText("");
-                    password.setText("");
-                    MainApp.logger.info("User authentication is succeed, loading home window...");
-                    SetActiveWindow(MainApp.homeWindow);
-                }
-                else{
-                    loginMessage.setText("A felhasználónév vagy a jelszó hibás!");
-                }
-            } catch (SQLException e) {
-                MainApp.logger.error("Source of error: " + e.getMessage());
-            }
-        }
     }
 }

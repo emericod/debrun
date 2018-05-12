@@ -14,7 +14,7 @@ import services.OfflineService;
  */
 public class SyncDatabase extends Task<Integer> {
 
-    /**
+    /** Thread method for autosync.
      * This method implemented Task abstract method.
      * @return 0, if the thread cancelled.
      * @throws Exception if there is any problem with local SQL database.
