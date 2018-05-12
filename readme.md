@@ -10,15 +10,12 @@ This application is a java desktop application and made for the debrun running r
 
 Installation:
 1. Clone this reposittory on your computer
-2. The cloned repository's debrun folder type "mvn package"
-3. After the build type "java -jar debrun/target/debrun-1.0-jar-with-dependencies.jar"
+2. The cloned repository's folder type "mvn package"
+3. After the build type "java -jar /target/debrun-1.0-jar-with-dependencies.jar"
 4. The application is running, in the login panel type the user login datas (username: "demo", password: "1234")
 5. You can test it without internet (disable the network adapters) or with network.
 6. For generating reports and documentation first type "mvn clover:instrument"
 7. After enter type "mvn site" and you can find it in the /target/site/ folder
 8. Click the checkstyle.html file.
-
-Requirements: Java 8 
-
 
 {:/}
