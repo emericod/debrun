@@ -24,6 +24,7 @@
     -fx-background-color: #ffffff;
     -fx-border-color: #BD0F77;
     -fx-border-width: 5px;
+    -fx-background-repeat: no-repeat;
 }
 
 .loginPanelTitle{

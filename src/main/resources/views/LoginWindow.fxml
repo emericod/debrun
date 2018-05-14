@@ -30,7 +30,10 @@
                         </Label>
                         <HBox alignment="TOP_CENTER">
                            <children>
-                              <Label minWidth="100.0" text="Felhasználónév" />
+                              <Label minWidth="100.0" text="Felhasználónév">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></Label>
                               <TextField fx:id="userName" />
                            </children>
                            <VBox.margin>
@@ -39,7 +42,10 @@
                         </HBox>
                         <HBox alignment="TOP_CENTER">
                            <children>
-                              <Label minWidth="100.0" text="Jelszó" />
+                              <Label minWidth="100.0" text="Jelszó">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin></Label>
                               <PasswordField fx:id="password" />
                            </children>
                            <VBox.margin>

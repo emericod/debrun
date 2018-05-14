@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<MenuBar maxHeight="25.0" minHeight="25.0" prefHeight="25.0" styleClass="menuBar" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuBarController">
+<MenuBar maxHeight="30.0" minHeight="30.0" prefHeight="30.0" styleClass="menuBar" stylesheets="@../css/debrunStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuBarController">
   <menus>
     <Menu mnemonicParsing="false" text="Fájl">
       <items>
