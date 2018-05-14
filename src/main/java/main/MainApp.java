@@ -384,6 +384,7 @@ public class MainApp extends Application {
             dialogStage.setTitle(applicant.getClientName() + " adatlapja");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
+            dialogStage.setResizable(false);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
