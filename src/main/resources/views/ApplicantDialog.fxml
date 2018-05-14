@@ -7,14 +7,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ApplicantDialogController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="410.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ApplicantDialogController">
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" styleClass="DialogTitle" stylesheets="@../css/debrunStyle.css" text="Nevező adatlap" textAlignment="CENTER" />
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nevező azonosító" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Nevező azonosító" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -27,7 +27,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Nevező neve" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Nevező neve" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -40,7 +40,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" prefWidth="100.0" text="Belépési státusz" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Belépési státusz" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -53,7 +53,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Rajtszám" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Rajtszám" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -66,7 +66,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Neme" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Neme" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -79,7 +79,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Pólóméret" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Pólóméret" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -95,7 +95,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Születési év" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Születési év" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -108,7 +108,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Email" textAlignment="RIGHT">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Email" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -121,7 +121,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Megjegyzés" textAlignment="RIGHT">
+                  <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Megjegyzés" textAlignment="RIGHT">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
@@ -134,7 +134,7 @@
             </HBox>
             <HBox>
                <children>
-                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="100.0" text="Regisztráció ideje">
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" minWidth="-Infinity" prefWidth="100.0" text="Regisztráció ideje">
                      <HBox.margin>
                         <Insets left="20.0" right="15.0" />
                      </HBox.margin>
